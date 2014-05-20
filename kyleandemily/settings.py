@@ -88,10 +88,10 @@ except ImportError:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'deafult.db')),
+        'NAME': os.path.join(DB_ROOT, 'deafult.db'),
     },
     'wedding': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'wedding.db')),
+        'NAME': os.path.join(DB_ROOT, 'wedding.db'),
     }
 }
