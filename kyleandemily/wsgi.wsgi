@@ -6,10 +6,11 @@ It exposes the WSGI callable as a module-level variable named ``application``.
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
-exec_file('~/.pyenv/versions/ohrockman/bin/activate_this.py')
-
 import os
 import sys
+
+activate_this = os.path.expanduser('~/.pyenv/versions/ohrockman/bin/activate_this.py')
+execfile(activate_this, dict(__file__=activate_this))
 sys.path.append('/Volumes/STORAGE/Web/kyleandemily')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kyleandemily.settings")
 
