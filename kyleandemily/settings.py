@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_DIR = os.path.join(BASE_DIR, 'kyleandemily')
+DB_ROOT = '/Volumes/STORAGE/Database/kyleandemily'
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,21 +56,6 @@ ROOT_URLCONF = 'kyleandemily.urls'
 
 WSGI_APPLICATION = 'kyleandemily.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.expanduser(os.path.join(os.environ['DB_ROOT'], 'deafult.db')),
-    },
-    'wedding': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.expanduser(os.path.join(os.environ['DB_ROOT'], 'wedding.db')),
-    }
-}
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -97,3 +83,15 @@ try:
     from kyleandemily.local_settings import *
 except ImportError:
     pass
+
+#This needs to come after the local_settings import so we can override the DB_ROOT var
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DB_ROOT, 'deafult.db')),
+    },
+    'wedding': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DB_ROOT, 'wedding.db')),
+    }
+}
