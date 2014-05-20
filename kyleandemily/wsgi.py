@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 import os
 import sys
 
-activate_this = os.path.join(os.environ['VENV_ROOT'], 'bin', 'activate_this.py')
+activate_this = '/Users/zoeserver/.pyenv/versions/kyleandemily/bin/activate_this.py'
 execfile(activate_this, dict(__file__=activate_this))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kyleandemily.settings")
 
