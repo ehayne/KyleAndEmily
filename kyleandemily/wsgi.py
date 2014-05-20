@@ -11,6 +11,7 @@ import sys
 
 activate_this = '/Users/zoeserver/.pyenv/versions/kyleandemily/bin/activate_this.py'
 execfile(activate_this, dict(__file__=activate_this))
+sys.path.append('/Volumes/STORAGE/Web/kyleandemily')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kyleandemily.settings")
 
 from django.core.wsgi import get_wsgi_application
