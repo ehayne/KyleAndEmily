@@ -62,11 +62,11 @@ WSGI_APPLICATION = 'kyleandemily.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.environ['DJANGO_DB_PATH'], 'deafult.db'),
+        'NAME': os.path.expanduser(os.path.join(os.environ['DB_PATH'], 'deafult.db')),
     },
     'wedding': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.environ['DJANGO_DB_PATH'], 'wedding.db'),
+        'NAME': os.path.expanduser(os.path.join(os.environ['DB_PATH'], 'wedding.db')),
     }
 }
 
