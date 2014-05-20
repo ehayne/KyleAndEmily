@@ -24,7 +24,7 @@ SECRET_KEY = '8ldfcujr4!-fnh1czol@+!t#h1hh)56@%)@k$*hz36wwokkw!m'
 DEBUG = False
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kyleandemily.com']
 
 
 # Application definition
