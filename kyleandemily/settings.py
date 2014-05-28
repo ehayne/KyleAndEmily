@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     
     'kyleandemily.wedding',
+    'kyleandemily.base',
 )
 
 MIDDLEWARE_CLASSES = (

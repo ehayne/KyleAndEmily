@@ -14,7 +14,7 @@ try:
     execfile(activate_this, dict(__file__=activate_this))
     sys.path.append('/Volumes/STORAGE/Web/kyleandemily')
 except:
-    activate_this = os.path.join(os.getcwd(), '.virtualenv', 'bin', 'activate_this.py')
+    activate_this = os.path.join(os.getcwd(), '.virtualenv', 'kyleandemily', 'bin', 'activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
     sys.path.append(os.getcwd())
     
