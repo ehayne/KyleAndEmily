@@ -1,0 +1,26 @@
+#imageHeader {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  background-image: url('../img/header.jpg');
+  background-size: contain;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  bottom: 0;
+  width: 100%;
+}
+
+#textHeader {
+    font-family: "Tangerine",Arial, Helvetica, sans-serif;
+    color: #aaa;
+}
+
+#textHeader h1 {
+    font-size: 5em;	
+}
+
+#theDate {
+    font-size: 4em;
+}

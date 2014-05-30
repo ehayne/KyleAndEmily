@@ -5,7 +5,11 @@ from django.shortcuts import render_to_response
 
 
 def home(request):
-    return HttpResponse("Hello, world. You're at the home page.")
+    template = loader.get_template('home.html')
+    context = RequestContext(request, {
+        'latest_question_list': 'x',
+    })
+    return HttpResponse(template.render(context))
 
 def about(request):
     template = loader.get_template('about.html')
@@ -14,14 +18,39 @@ def about(request):
     })
     return HttpResponse(template.render(context))
 
+
+def gallery(request):
+    template = loader.get_template('gallery.html')
+    context = RequestContext(request, {
+        'latest_question_list': 'x',
+    })
+    return HttpResponse(template.render(context))
+
+
 def details(request):
-    return HttpResponse("Hello, world. You're at the details page.")
+    template = loader.get_template('details.html')
+    context = RequestContext(request, {
+        'latest_question_list': 'x',
+    })
+    return HttpResponse(template.render(context))
 
 def hotels(request):
-    return HttpResponse("Hello, world. You're at the hotels page.")
+    template = loader.get_template('hotels.html')
+    context = RequestContext(request, {
+        'latest_question_list': 'x',
+    })
+    return HttpResponse(template.render(context))
 
 def rsvp(request):
-    return HttpResponse("Hello, world. You're at the rsvp page.")
+    template = loader.get_template('rsvp.html')
+    context = RequestContext(request, {
+        'latest_question_list': 'x',
+    })
+    return HttpResponse(template.render(context))
 
 def registry(request):
-    return HttpResponse("Hello, world. You're at the registry page.")
+    template = loader.get_template('registry.html')
+    context = RequestContext(request, {
+        'latest_question_list': 'x',
+    })
+    return HttpResponse(template.render(context))

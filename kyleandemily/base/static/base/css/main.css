@@ -11,22 +11,27 @@
    ========================================================================== */
 
 html {
-    color: #222;
+    color: #cccccc;
     font-size: 1em;
     line-height: 1.4;
 }
 
 body {
-      background-color: #555; 
-      font: small/1.3 Arial, Helvetica, sans-serif; }
+      background-color: #cccccc; /* grey */
+      font: small/1.3 Arial, Helvetica, sans-serif;
+}
 
 #wrap {
-      width: 750px;
+      width: 75%;
       margin: 0 auto;
-      background-color: #fff; }
+      padding: 20px;
+      background-color: #97c3a2; /* mint green */
+}
 
 #content {
     padding: 0 50px 50px;
+    background-color: #ffffff;  /* white */
+    color: #000000; /* black */
 }
 
 /*
@@ -112,27 +117,37 @@ textarea {
    Navbar styles
    ========================================================================== */
 #nav {
+	font-size: 1.25em;
 	width: 100%;
 	float: left;
-	margin: 0 0 3em 0;
+	margin-bottom: 0 0 3em 0;
 	padding: 0;
+	background-color: #97c3a2;
+}
+#nav ul {
 	list-style: none;
-	background-color: #f2f2f2;
-	border-bottom: 1px solid #ccc; 
+	width: 100%;   
+	margin: 0 auto;
+	padding 0;
 }
 #nav li {
-	float: left; }
+	float: left;
+	padding: .5em 2em .5em 2em;
+}
 #nav li a {
 	display: block;
-	padding: 8px 15px;
 	text-decoration: none;
 	font-weight: bold;
-	color: #069;
+	color: #ffffff;
 }
 #nav li a:hover {
-	color: #c00;
-	background-color: #fff; }
+	color: #cccccc;}
 
+#nav:after {
+	content: "";
+	clear: both;
+	display: table;
+}
 
 /* ==========================================================================
    Helper classes
