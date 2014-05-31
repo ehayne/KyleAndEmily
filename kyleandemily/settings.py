@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-PROJECT_DIR = os.path.join(BASE_DIR, 'kyleandemily')
 DB_ROOT = '/Volumes/STORAGE/Database/kyleandemily'
 
 
@@ -19,7 +18,8 @@ DB_ROOT = '/Volumes/STORAGE/Database/kyleandemily'
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8ldfcujr4!-fnh1czol@+!t#h1hh)56@%)@k$*hz36wwokkw!m'
+with open(os.path.join(BASE_DIR, 'key.txt')) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -28,6 +28,17 @@ TEMPLATE_DEBUG = False
 ALLOWED_HOSTS = ['www.kyleandemily.com',
                  'kyleandemily.com',
                  'media.kyleandemily.com']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DB_ROOT, 'deafult.db'),
+    },
+    'wedding': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DB_ROOT, 'wedding.db'),
+    }
+}
 
 
 # Application definition
@@ -76,23 +87,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'http://media.kyleandemily.com/'
 
-TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'templates')
-)
-
 try:
     from kyleandemily.local_settings import *
 except ImportError:
     pass
-
-#This needs to come after the local_settings import so we can override the DB_ROOT var
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'deafult.db'),
-    },
-    'wedding': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'wedding.db'),
-    }
-}
