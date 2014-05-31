@@ -1,15 +1,9 @@
 #imageHeader {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  background-image: url('../img/header.jpg');
-  background-size: contain;
-  background-position: 50% 100%;
-  background-repeat: no-repeat;
-  background-attachment: local;
-  bottom: 0;
-  width: 100%;
+  background: url('../img/header.jpg') no-repeat center center local; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #textHeader {
@@ -18,7 +12,8 @@
 }
 
 #textHeader h1 {
-    font-size: 5em;	
+    font-size: 5em;
+    margin: 0px 0px;
 }
 
 #theDate {
@@ -38,8 +33,17 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
+    clear: right;
 }
 
 .galleryImage img {
     max-width: 40%;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
 }

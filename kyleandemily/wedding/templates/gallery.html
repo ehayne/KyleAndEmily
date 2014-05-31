@@ -7,8 +7,17 @@
 
     {% for img in img_list %}
         <div class="galleryImage">         
-          <img src="{% static img.img_path %}" alt="{{ img.img_text }}" />
-          {{ img.img_text }}
+        {% if forloop.counter|divisibleby:2 %}
+          <figure class="right">
+            <img src="{% static img.img_path %}" alt="{{ img.img_text }}" />
+            <figcaption>{{ img.img_text }}</figcaption>
+          </figure>
+        {% else %}
+          <figure class="left">
+            <img src="{% static img.img_path %}" alt="{{ img.img_text }}" />
+            <figcaption>{{ img.img_text }}</figcaption>
+          </figure>
+        {% endif %}
         <div>
     {% endfor %}
 </div>
