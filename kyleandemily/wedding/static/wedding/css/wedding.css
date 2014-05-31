@@ -24,3 +24,22 @@
 #theDate {
     font-size: 4em;
 }
+
+.personSection {
+	padding: 5px;
+}
+
+.personDescription {
+	padding-left: 15px;
+}
+
+.galleryImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+.galleryImage img {
+    max-width: 40%;
+}
