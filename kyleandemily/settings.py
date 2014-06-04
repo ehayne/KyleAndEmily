@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['www.kyleandemily.com',
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'deafult.db'),
+        'NAME': os.path.join(DB_ROOT, 'default.db'),
     },
     'wedding': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -50,6 +50,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    
+    
+     'photologue',
+     'south',               # if it's not already in your INSTALLED_APPS.
+     'sortedm2m',
     
     'kyleandemily.wedding',
     'kyleandemily.base',
@@ -86,6 +92,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'http://media.kyleandemily.com/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'http://media.kyleandemily.com/'
 
 try:
     from kyleandemily.local_settings import *

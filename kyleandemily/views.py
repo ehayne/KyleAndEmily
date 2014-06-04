@@ -10,3 +10,4 @@ def under_construction(request):
         'latest_question_list': 'x',
     })
     return HttpResponse(template.render(context))
+
