@@ -48,11 +48,15 @@ docs/_build/
 
 # Project specific
 /kyleandemily/local_settings.py
-/.virtualenv/
-
 /static/
 /media/
 
-/deafult.db
+/default.db
+
+# catches symlinks
+/.virtualenv
+/.virtualenv/
+
+
 
 *~
