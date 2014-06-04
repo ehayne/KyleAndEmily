@@ -93,8 +93,12 @@ STATIC_URL = 'http://static.kyleandemily.com/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'http://media.kyleandemily.com/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'http://media.kyleandemily.com/'
+SITE_ID = 1
+
+from photologue import PHOTOLOGUE_APP_DIR
+TEMPLATE_DIRS = (
+    PHOTOLOGUE_APP_DIR
+)
 
 try:
     from kyleandemily.local_settings import *
