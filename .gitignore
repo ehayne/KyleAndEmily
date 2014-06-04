@@ -51,6 +51,7 @@ docs/_build/
 /.virtualenv/
 
 /static/
+/media/
 
 /deafult.db
 
