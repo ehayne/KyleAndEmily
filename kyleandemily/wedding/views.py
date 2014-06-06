@@ -36,6 +36,7 @@ def gallery(request):
     template = loader.get_template('gallery.html')
     context = RequestContext(request, {
         'img_list': img_list,
+        'gallery_name': 'first-gallery',
     })
     return HttpResponse(template.render(context))
 
