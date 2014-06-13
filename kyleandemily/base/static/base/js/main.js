@@ -2,10 +2,19 @@ $(document).ready(function() {
 	$(".fancybox").fancybox();
 
     $(".fancybox").fancybox({
-		'transitionIn'	:	'elastic',
-		'transitionOut'	:	'elastic',
-//		'speedIn'		:	600,
-//		'speedOut'		:	200,
-		'overlayShow'	:	false
+		'openEffect'	:	'elastic',
+		'closeEffect'	:	'elastic',
 	});
+
+    //Change title position; show overlay after content has loaded
+  $(".fancybox").fancybox({
+    helpers:  {
+        title : {
+            type : 'outside'
+        },
+        overlay : {
+            showEarly : false
+        }
+    }
+  });
 });

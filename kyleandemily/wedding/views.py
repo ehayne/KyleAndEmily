@@ -14,9 +14,7 @@ def home(request):
     time_until_wedding = WEDDING_DATE - today
 
     template = loader.get_template('home.html')
-    context = RequestContext(request, {
-        'js_file': ['/static/base/js/main.js']
-    },
+    context = RequestContext(request,
     {
         'days_left': time_until_wedding.days,
     })
