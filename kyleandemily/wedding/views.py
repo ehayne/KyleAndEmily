@@ -4,18 +4,29 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 # from django.shortcuts import render_to_response
 from photologue.models import Gallery
+from pytz import timezone
 
-WEDDING_DATE = date(2015, 04, 10)
+WEDDING_DATE = datetime(2014, 06, 13, 14, 0, tzinfo=timezone('US/Central'))
 
 def home(request):
 
-    today = date.today()  # TODO: uses UTC date, needs to use local timezone date
+    today = datetime.now(tz=timezone('US/Central'))
 
     time_until_wedding = WEDDING_DATE - today
+    days, hours, mins = (time_until_wedding.days,
+                         time_until_wedding.seconds//3600,
+                         (time_until_wedding.seconds//60)%60)
+    
+    married = WEDDING_DATE < today
+        
 
     template = loader.get_template('home.html')
-    context = RequestContext(request,{
-        'days_left': time_until_wedding.days,
+    context = RequestContext(request,
+    {
+        'days_left': days,
+        'hours_left': hours,
+        'mins_left': mins,
+        'is_married': married
     })
     return HttpResponse(template.render(context))
 
