@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime
 
 from django.http import HttpResponse
 from django.template import RequestContext, loader
