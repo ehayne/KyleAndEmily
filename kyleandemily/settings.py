@@ -14,6 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 DB_ROOT = '/Volumes/STORAGE/Database/kyleandemily'
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -90,7 +91,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'http://static.kyleandemily.com/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/Volumes/STORAGE/Media/kyleandemily'
 MEDIA_URL = 'http://media.kyleandemily.com/'
 
 SITE_ID = 1
