@@ -22,7 +22,7 @@ with open(os.path.join(BASE_DIR, 'key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
@@ -97,7 +97,7 @@ SITE_ID = 1
 
 from photologue import PHOTOLOGUE_APP_DIR
 TEMPLATE_DIRS = (
-    PHOTOLOGUE_APP_DIR
+    PHOTOLOGUE_APP_DIR,
 )
 
 try:
