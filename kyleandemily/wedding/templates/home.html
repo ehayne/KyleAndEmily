@@ -5,7 +5,15 @@
 {% block wedding-content %}
 <div id="content">
     <h2>Welcome to our wedding site.</h2>
-    <div id="counter">Only {{ days_left }} day{{days_left|pluralize}} until the wedding!</div>
+    <div id="counter">
+    {% if is_married %}
+        We're Married!
+    {% elif days_left < 7 %}
+        Only {{ days_left }} day{{days_left|pluralize}} and {{ hours_left }} hour{{hours_left|pluralize}} until the wedding!
+    {% else %}
+        Only {{ days_left }} day{{days_left|pluralize}} until the wedding!
+    {% endif %}
+    </div>
 </div>
 {% endblock %}
 

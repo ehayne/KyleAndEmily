@@ -1,22 +1,33 @@
-from datetime import date
+from datetime import date, datetime
 
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 # from django.shortcuts import render_to_response
 from photologue.models import Photo
+from pytz import timezone
 
-WEDDING_DATE = date(2015, 04, 10)
+WEDDING_DATE = datetime(2014, 06, 15, 0 ,0 ,0, 0, timezone('US/Central'))
 
 def home(request):
 
-    today = date.today()  # TODO: uses UTC date, needs to use local timezone date
+    now_utc = datetime.now(timezone('UTC'))
+    now_central = now_utc.astimezone(timezone('US/Central'))
 
-    time_until_wedding = WEDDING_DATE - today
+    time_until_wedding = WEDDING_DATE - now_central
+    days, hours, mins = (time_until_wedding.days,
+                         time_until_wedding.seconds//3600,
+                         (time_until_wedding.seconds//60)%60)
+    
+    married = mins < 1
+        
 
     template = loader.get_template('home.html')
     context = RequestContext(request,
     {
-        'days_left': time_until_wedding.days,
+        'days_left': days,
+        'hours_left': hours,
+        'mins_left': mins,
+        'is_married': married
     })
     return HttpResponse(template.render(context))
 
