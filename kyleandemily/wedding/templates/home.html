@@ -9,7 +9,7 @@
     {% if is_married %}
         We're Married!
     {% elif days_left < 7 %}
-        Only {{ days_left }} day{{days_left|pluralize}} and {{ hours_left }} hour{{hours_left|pluralize}} until the wedding!
+        Only {{ days_left }} day{{days_left|pluralize}} and {{ hours_left }} hour{{hours_left|pluralize}} and {{ mins_left }} min{{mins_left|pluralize}} until the wedding!
     {% else %}
         Only {{ days_left }} day{{days_left|pluralize}} until the wedding!
     {% endif %}
