@@ -6,19 +6,18 @@ from django.template import RequestContext, loader
 from photologue.models import Photo
 from pytz import timezone
 
-WEDDING_DATE = datetime(2014, 06, 13, 14 ,0 ,0, 0, timezone('US/Central'))
+WEDDING_DATE = datetime(2014, 06, 13, 14, 0, tzinfo=timezone('US/Central'))
 
 def home(request):
 
-    now_utc = datetime.now(timezone('UTC'))
-    now_central = now_utc.astimezone(timezone('US/Central'))
+    today = datetime.now(tz=timezone('US/Central'))
 
-    time_until_wedding = WEDDING_DATE - now_central
+    time_until_wedding = WEDDING_DATE - today
     days, hours, mins = (time_until_wedding.days,
                          time_until_wedding.seconds//3600,
                          (time_until_wedding.seconds//60)%60)
     
-    married = mins < 1
+    married = WEDDING_DATE < today
         
 
     template = loader.get_template('home.html')
