@@ -3,7 +3,7 @@ from datetime import date
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 # from django.shortcuts import render_to_response
-from photologue.models import Photo
+from photologue.models import Gallery
 
 WEDDING_DATE = date(2015, 04, 10)
 
@@ -14,8 +14,7 @@ def home(request):
     time_until_wedding = WEDDING_DATE - today
 
     template = loader.get_template('home.html')
-    context = RequestContext(request,
-    {
+    context = RequestContext(request,{
         'days_left': time_until_wedding.days,
     })
     return HttpResponse(template.render(context))
@@ -30,7 +29,7 @@ def about(request):
 
 def gallery(request):
 
-    wedding_photos = Photo.objects.on_site().is_public()
+    wedding_photos = Gallery.objects.on_site().is_public()
 
     template = loader.get_template('gallery.html')
     context = RequestContext(request, {
