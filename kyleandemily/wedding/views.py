@@ -29,7 +29,7 @@ def about(request):
 
 def gallery(request):
 
-    wedding_photos = Gallery.objects.on_site().is_public()
+    wedding_photos = Gallery.objects.filter(tags='wedding')
 
     template = loader.get_template('gallery.html')
     context = RequestContext(request, {
