@@ -6,7 +6,7 @@ from django.template import RequestContext, loader
 from photologue.models import Gallery
 from pytz import timezone
 
-WEDDING_DATE = datetime(2014, 06, 13, 14, 0, tzinfo=timezone('US/Central'))
+WEDDING_DATE = datetime(2015, 04, 10, 14, 0, tzinfo=timezone('US/Central'))
 
 def about(request):
 
