@@ -52,14 +52,15 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    
-    
-     'photologue',
-     'south',               # if it's not already in your INSTALLED_APPS.
-     'sortedm2m',
-    
+
+    'photologue',
+    'south',
+    'sortedm2m',
+    'compressor',   # TODO: this is from rsvp, is it needed?
+
     'kyleandemily.wedding',
     'kyleandemily.base',
+    'kyleandemily.rsvp',
 )
 
 MIDDLEWARE_CLASSES = (
