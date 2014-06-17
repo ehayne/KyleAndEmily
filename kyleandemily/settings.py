@@ -56,7 +56,7 @@ INSTALLED_APPS = (
     'photologue',
     'south',
     'sortedm2m',
-    # 'compressor',   TODO: this is from rsvp, is it needed?
+    'debug_toolbar',
 
     'kyleandemily.wedding',
     'kyleandemily.base',
@@ -70,6 +70,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'kyleandemily.urls'

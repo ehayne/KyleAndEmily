@@ -1,3 +1,6 @@
+{% extends "wedding_base.html" %}
+
+{% block wedding-content %}
 <form name="people" id="people" method="POST" action="{% url "save" %}">
     {% csrf_token %}
     <input type="hidden" name="invitation_id" value="{{ invitation.id }}">
@@ -41,6 +44,8 @@
 
     <button type="submit" class="huge-margin-top submit button">Save Guest Details</button>
 </form>
+
+{%  endblock %}
 
 <script type="text/javascript">
     var $people_form = $("form#people"),

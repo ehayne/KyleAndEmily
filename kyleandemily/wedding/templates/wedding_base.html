@@ -15,7 +15,9 @@
   </div>
 
     {% include 'navbar.html' %}
-    {% block wedding-content %}{% endblock %}
+    <div id="content">
+      {% block wedding-content %}{% endblock %}
+    </div>
     {% include 'wedding_footer.html' %}
 </div>
 {% endblock %}
