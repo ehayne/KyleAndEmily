@@ -6,10 +6,6 @@ from django.template import RequestContext
 from .models import Person, Invitation
 
 
-NO_RESULTS_MSG = "That name is not in the list.  Please try again."
-FIRST_TIME_MSG = "Please enter the name as you found it on your invitation."
-
-
 class DotExpandedDict(dict):
     """
 A special dictionary constructor that takes a dictionary in which the keys
@@ -47,7 +43,7 @@ example should make sense.
 def landing(request):
 
     context = RequestContext(request, {
-        'msg': FIRST_TIME_MSG,
+        'msg': '',
     })
 
     return render_to_response('entry.html', context, RequestContext(request))

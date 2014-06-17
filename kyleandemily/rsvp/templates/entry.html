@@ -7,21 +7,21 @@
         <hr>
 
         <form name="lookup" id="lookup" action="lookup/" method="GET">
-            <p> {{ msg }}</p>
             <p>Please enter your name to lookup your invitation</p>
             <div class="row">
-                <div class="medium-6 medium-offset-3 columns">
-                    <div class="row">
-                        <div class="small-5 columns">
-                            <input type="text" name="first_name" id="firstname" placeholder="First Name" value="{{ first_name }}">
-                        </div>
-                        <div class="small-5 columns">
-                            <input type="text" name="last_name" id="lastname" placeholder="Last Name" value="{{ last_name }}">
-                        </div>
-                        <div class="small-2 columns">
-                            <button class="submit button postfix">Go</button>
-                        </div>
-                    </div>
+
+                <div>
+                <label class="label" for="first_name">First Name:</label>
+                <input type="text" name="first_name" id="firstname" placeholder="First Name" value="{{ first_name }}">
+                </div>
+
+                <div>
+                <label class="label" for="last_name">Last Name:</label>
+                <input type="text" name="last_name" id="lastname" placeholder="Last Name" value="{{ last_name }}">
+                </div>
+
+                <div>
+                <button class="submit button postfix">Find It</button>
                 </div>
             </div>
         </form>

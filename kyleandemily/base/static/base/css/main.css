@@ -94,6 +94,10 @@ textarea {
     resize: vertical;
 }
 
+.label {
+    font-weight: bold;
+}
+
 /* ==========================================================================
    Browse Happy prompt
    ========================================================================== */
@@ -131,7 +135,6 @@ textarea {
 	list-style: none;
 	width: 100%;   
 	margin: 0 auto;
-	padding 0;
 }
 #nav li {
 	float: left;

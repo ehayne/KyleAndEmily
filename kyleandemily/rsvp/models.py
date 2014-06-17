@@ -2,6 +2,14 @@
 
 from django.db import models
 
+'''
+TODO: possible ideas for models
+add flag for +1 field for people whose date we don't know
+add text field on invitation for general comments
+remove dietary restriction
+
+'''
+
 
 class Invitation(models.Model):
     '''
