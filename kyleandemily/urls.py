@@ -7,7 +7,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 import kyleandemily.views as views
-import kyleandemily.wedding.urls
 
 urlpatterns = patterns('',
    url(r'^$',

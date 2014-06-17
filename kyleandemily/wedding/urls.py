@@ -1,14 +1,10 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 
 import kyleandemily.wedding.views as wedding_views
-import kyleandemily.rsvp.views as rsvp_views
 
 urlpatterns = patterns(
     '',
     url(r'^$',
-    	wedding_views.home,
-    	name='about_us'),
-    url(r'^about/$',
     	wedding_views.about,
     	name='about_us'),
     url(r'^gallery/$',
@@ -20,9 +16,7 @@ urlpatterns = patterns(
     url(r'^hotels/$',
     	wedding_views.hotels,
     	name='hotel_info'),
-    url(r'^rsvp/$',
-    	rsvp_views.lookup,
-    	name='rsvp'),
+    url(r'^rsvp/', include('kyleandemily.rsvp.urls')),
     url(r'^registry/$',
     	wedding_views.registry,
     	name='registry'),

@@ -8,28 +8,6 @@ from pytz import timezone
 
 WEDDING_DATE = datetime(2014, 06, 13, 14, 0, tzinfo=timezone('US/Central'))
 
-def home(request):
-
-    today = datetime.now(tz=timezone('US/Central'))
-
-    time_until_wedding = WEDDING_DATE - today
-    days, hours, mins = (time_until_wedding.days,
-                         time_until_wedding.seconds//3600,
-                         (time_until_wedding.seconds//60)%60)
-    
-    married = WEDDING_DATE < today
-        
-
-    template = loader.get_template('home.html')
-    context = RequestContext(request,
-    {
-        'days_left': days,
-        'hours_left': hours,
-        'mins_left': mins,
-        'is_married': married
-    })
-    return HttpResponse(template.render(context))
-
 def about(request):
 
 
