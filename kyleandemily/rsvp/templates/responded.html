@@ -3,6 +3,47 @@
 {% block wedding-content %}
 <h3>{{ invitation.name }}</h3>
 
-<p>Thanks! We've saved your response. If you need to make changes to your RSVP please call Eva at (415) 548-3156</p>
+<p>Thanks! Your response is saved. If you need to make changes to your RSVP please call Emily at (512) 677-9297.</p>
+
+
+    <h3>{{ invitation.name }}</h3>
+
+    {% for person in invitation.people.all %}
+    <h5 class="huge-margin-top">Guest #{{ forloop.counter }}</h5>
+
+    <div class="row text-left">
+        <div class="medium-6 medium-offset-3 columns">
+            <label>
+                Attending:
+            </label>
+            {% if  person.attending %}
+              Yes
+            {% else %}
+              No
+            {%  endif %}
+        </div>
+        <div class="small-6 medium-3 medium-offset-3 columns">
+            <label>
+                First Name:
+            </label>
+            {{ person.first_name }}
+        </div>
+        <div class="small-6 medium-3 columns end">
+            <label>
+                Last Name:
+            </label>
+            {{ person.last_name }}
+        </div>
+    </div>
+    <div class="row text-left">
+        <div class="medium-6 medium-offset-3 columns">
+            <label>
+                Dietary restrictions:
+            </label>
+            {{ person.dietary_restrictions }}
+        </div>
+    </div>
+    {% endfor %}
+
 
 {%  endblock %}

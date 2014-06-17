@@ -1,8 +1,14 @@
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render_to_response
+from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404, render_to_response, HttpResponseRedirect
 from django.template import RequestContext
 
 from .models import Person, Invitation
+
+
+NO_RESULTS_MSG = "That name is not in the list.  Please try again."
+FIRST_TIME_MSG = "Please enter the name as you found it on your invitation."
+
 
 class DotExpandedDict(dict):
     """
@@ -38,14 +44,22 @@ example should make sense.
                 current = {bits[-1]: v}
 
 
+def landing(request):
+
+    context = RequestContext(request, {
+        'msg': FIRST_TIME_MSG,
+    })
+
+    return render_to_response('entry.html', context, RequestContext(request))
+
+
+
 def lookup(request):
     first_name = request.GET.get('first_name')
     last_name = request.GET.get('last_name')
-    person = get_object_or_404(
-        Person,
-        first_name__iexact=first_name,
-        last_name__iexact=last_name
-    )
+
+    person = Person.objects.get(first_name__iexact=first_name,    #TODO: add handling for if hperson doesn't exists - possibly ajax check in page?
+                                last_name__iexact=last_name)
 
     context = {
         'invitation': person.invitation
