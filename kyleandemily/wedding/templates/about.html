@@ -1,9 +1,19 @@
 {% extends "wedding_base.html" %}
 
 
-
 {% block wedding-content %}
 <div id="content">
+    <h2>Some kind of sub-heading goes here!!</h2>
+    <div id="counter">
+    {% if is_married %}
+        We're Married!
+    {% elif days_left <= 7 %}
+        Only {{ days_left }} day{{days_left|pluralize}}, {{ hours_left }} hour{{hours_left|pluralize}} and {{ mins_left }} min{{mins_left|pluralize}} until the wedding!
+    {% else %}
+        Only {{ days_left }} day{{days_left|pluralize}} until the wedding!
+    {% endif %}
+    </div>
+
   <div id="groom" class="personSection">  
     <h3>Kyle Rockman</h3>
     <p class="personDescription">

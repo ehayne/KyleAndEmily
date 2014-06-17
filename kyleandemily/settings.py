@@ -56,7 +56,7 @@ INSTALLED_APPS = (
     'photologue',
     'south',
     'sortedm2m',
-    'compressor',   # TODO: this is from rsvp, is it needed?
+    # 'compressor',   TODO: this is from rsvp, is it needed?
 
     'kyleandemily.wedding',
     'kyleandemily.base',

@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, url
 
 import kyleandemily.wedding.views as wedding_views
+import kyleandemily.rsvp.views as rsvp_views
 
 urlpatterns = patterns(
     '',
     url(r'^$',
     	wedding_views.home,
-    	name='home'),
+    	name='about_us'),
     url(r'^about/$',
     	wedding_views.about,
     	name='about_us'),
@@ -20,7 +21,7 @@ urlpatterns = patterns(
     	wedding_views.hotels,
     	name='hotel_info'),
     url(r'^rsvp/$',
-    	wedding_views.rsvp,
+    	rsvp_views.lookup,
     	name='rsvp'),
     url(r'^registry/$',
     	wedding_views.registry,
