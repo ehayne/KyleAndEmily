@@ -75,6 +75,8 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'kyleandemily.urls'
 
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
 WSGI_APPLICATION = 'kyleandemily.wsgi.application'
 
 # Internationalization
