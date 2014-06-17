@@ -47,3 +47,8 @@
 .right{
 	float: right;
 }
+
+.center {
+    display: table;
+    margin: 0 auto;
+}
