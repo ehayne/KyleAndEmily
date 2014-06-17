@@ -21,11 +21,10 @@ $(document).ready(function() {
 
             },
             error: function (jqXHR, status) {
-                var $error = $('<div data-alert class="alert-box alert radius">Sorry, we could not find your invitation</div>');
-                $lookup_form.append($error);
-                $('html, body').animate({
-                    scrollTop: $error.offset().top
-                }, 500);
+                var $error = $('<p>Sorry, we could not find your invitation</p>');
+                if($('div#error_msg').is(':empty')) {
+                    $($error).appendTo('#error_msg');
+                }
             }
         });
     });
