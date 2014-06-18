@@ -7,28 +7,25 @@ $(document).ready(function() {
     $first_name.focus();
 
     $lookup_form.submit(function (event) {
-        console.log('first', $first_name.val())
-        console.log('last', $last_name.val())
+        event.preventDefault();
         $.ajax({
-            url: '/lookup/',
+            url: 'lookup/',
             cache: false,
             data: {
                 'first_name': $first_name.val(),
                 'last_name': $last_name.val()
             },
             success: function (data, status, jqXHR) {
-                $lookup_form.fadeOut(function () {
-                    $container.append(data);
-                });
+                $lookup_form.unbind().submit();
+                $lookup_form.submit();
+
             },
             error: function (jqXHR, status) {
-                var $error = $('<div data-alert class="alert-box alert radius">Sorry, we could not find your invitation</div>');
-                $lookup_form.append($error);
-                $('html, body').animate({
-                    scrollTop: $error.offset().top
-                }, 500);
+                var $error = $('<p>Sorry, we could not find your invitation</p>');
+                if($('div#error_msg').is(':empty')) {
+                    $($error).appendTo('#error_msg');
+                }
             }
         });
-        event.preventDefault();
     });
 });

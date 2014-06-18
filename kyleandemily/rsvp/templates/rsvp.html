@@ -13,31 +13,34 @@
     <h5 class="huge-margin-top">Guest #{{ forloop.counter }}</h5>
 
     <div class="row text-left">
-        <div class="medium-6 medium-offset-3 columns">
-            <label>
+        <div class="formInputs columns">
+            <label class="label" for="person.{{ forloop.counter0 }}.attending">
                 Attending?
-                <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">In Person ☺</option><option value="0">In Spirit ☹</option></select>
             </label>
+            <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">In Person ☺</option><option value="0">In Spirit ☹</option></select>
+
         </div>
-        <div class="small-6 medium-3 medium-offset-3 columns">
-            <label>
+        <div class="formInputs columns">
+            <label class="label" for="person.{{ forloop.counter0 }}.first_name">
                 First Name
-                <input type="text" name="person.{{ forloop.counter0 }}.first_name" value="{{ person.first_name }}">
             </label>
+            <input type="text" name="person.{{ forloop.counter0 }}.first_name" value="{{ person.first_name }}">
+
         </div>
-        <div class="small-6 medium-3 columns end">
-            <label>
+        <div class="formInputs columns end">
+            <label class="label" for="person.{{ forloop.counter0 }}.last_name">
                 Last Name
-                <input type="text" name="person.{{ forloop.counter0 }}.last_name" value="{{ person.last_name }}">
             </label>
+            <input type="text" name="person.{{ forloop.counter0 }}.last_name" value="{{ person.last_name }}">
+
         </div>
     </div>
-    <div class="row text-left">
+    <div class="formInputs row text-left">
         <div class="medium-6 medium-offset-3 columns">
-            <label>
+            <label class="label" for="person.{{ forloop.counter0 }}.dietary_restrictions">
                 Dietary restrictions?
-                <textarea name="person.{{ forloop.counter0 }}.dietary_restrictions">{{ person.dietary_restrictions }}</textarea>
             </label>
+            <textarea name="person.{{ forloop.counter0 }}.dietary_restrictions">{{ person.dietary_restrictions }}</textarea>
         </div>
     </div>
     {% endfor %}

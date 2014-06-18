@@ -10,21 +10,22 @@
             <p>Please enter your name to lookup your invitation</p>
             <div class="row">
 
-                <div>
+                <div class="formInputs">
                 <label class="label" for="first_name">First Name:</label>
                 <input type="text" name="first_name" id="firstname" placeholder="First Name" value="{{ first_name }}">
                 </div>
 
-                <div>
+                <div class="formInputs">
                 <label class="label" for="last_name">Last Name:</label>
                 <input type="text" name="last_name" id="lastname" placeholder="Last Name" value="{{ last_name }}">
                 </div>
 
-                <div>
+                <div class="formInputs">
                 <button class="submit button postfix">Find It</button>
                 </div>
             </div>
         </form>
+      <div id="error_msg"></div>
     </div>
 
 {% endblock %}
