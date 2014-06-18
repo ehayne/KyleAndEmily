@@ -19,6 +19,10 @@ Represents an invitation to the wedding
         max_length=128,
         help_text='An informal name for this invitation'
     )
+    comment = models.TextField(
+        # max_length = 2000, TODO: do we want max length?
+        blank=True
+    )
     responded = models.BooleanField(
         default=False,
         help_text='Has this invitation been responded to'
@@ -52,8 +56,9 @@ Represents a person coming to the wedding
         blank=True,
         null=True
     )
-    dietary_restrictions = models.TextField(
-        blank=True
+    has_plus_one = models.BooleanField(
+        default=False,
+        help_text='Does this person have an unnamed +1?'
     )
     updated = models.DateTimeField(
         auto_now=True
