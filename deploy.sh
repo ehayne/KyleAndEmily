@@ -5,8 +5,8 @@ export WEB_ROOT=/Volumes/STORAGE/Web/${PROJECT_NAME}
 ln -s ${VENV_ROOT} ./.virtualenv
 . ./.virtualenv/bin/activate
 pip install --upgrade -r ./requirements.txt
-rm -f /usr/local/etc/uwsgi/apps/kyleandemily.ini
-mv ./wsgi.ini /usr/local/etc/uwsgi/apps/kyleandemily.ini
+rm -f /usr/local/etc/uwsgi/apps/${PROJECT_NAME}.ini
+mv ./wsgi.ini /usr/local/etc/uwsgi/apps/${PROJECT_NAME}.ini
 
 rm -rvf ${WEB_ROOT}
 mkdir ${WEB_ROOT}
