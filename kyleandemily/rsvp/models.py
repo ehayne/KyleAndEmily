@@ -20,11 +20,11 @@ Represents an invitation to the wedding
         help_text='An informal name for this invitation'
     )
     comment = models.TextField(
-        max_length = 2000,
+        max_length=2000,
         blank=True
     )
     song = models.TextField(
-        max_length = 200,
+        max_length=200,
         blank=True
     )
     plusOne = models.BooleanField(
