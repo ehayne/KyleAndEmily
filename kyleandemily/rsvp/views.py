@@ -58,7 +58,7 @@ def lookup(request):
                                 last_name__iexact=last_name)
 
     context = {
-        'invitation': person.invitation
+        'invitation': person.invitation,
     }
 
     if person.invitation.responded:
@@ -88,8 +88,19 @@ def save(request):
         person.save()
         index += 1
 
+    if invitation.plusOne:
+        additional_guest = request.POST['plus_one_attending']
+        if additional_guest == '1':
+            plusOne = Person.objects.create(invitation=invitation,
+                                    attending= True,
+                                    first_name=request.POST['plus_one_first_name'],
+                                    last_name=request.POST['plus_one_last_name']
+                                    )
+            plusOne.save()
+
     invitation.responded = True
     invitation.comment = request.POST.get('comment')
+    invitation.song = request.POST.get('song')
     invitation.save()
 
     return render_to_response('thanks.html')
