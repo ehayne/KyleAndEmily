@@ -35,15 +35,22 @@
             {{ person.last_name }}
         </div>
     </div>
-    <div class="row text-left">
+    {% endfor %}
+    <div class="row">
         <div class="medium-6 medium-offset-3 columns">
             <label>
-                Dietary restrictions:
+                Comments:
             </label>
-            {{ person.dietary_restrictions }}
+            {{ invitation.comment }}
         </div>
     </div>
-    {% endfor %}
-
+    <div class="row">
+        <div class="medium-6 medium-offset-3 columns">
+            <label>
+                Song Request:
+            </label>
+            {{ invitation.song }}
+        </div>
+    </div>
 
 {%  endblock %}

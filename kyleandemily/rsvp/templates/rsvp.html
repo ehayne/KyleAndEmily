@@ -17,7 +17,7 @@
             <label class="label" for="person.{{ forloop.counter0 }}.attending">
                 Attending?
             </label>
-            <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">In Person ☺</option><option value="0">In Spirit ☹</option></select>
+            <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
         </div>
 
         <div class="formInputs columns">
@@ -38,6 +38,34 @@
     </div>
 
     {% endfor %}
+    {% if invitation.plusOne %}
+    <h5 class="huge-margin-top">Plus One</h5>
+
+    <div class="row text-left">
+        <div class="formInputs columns">
+            <label class="label" for="plus_one_attending">
+                Attending?
+            </label>
+            <select class="attending" name="plus_one_attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+        </div>
+
+        <div class="formInputs columns">
+            <label class="label" for="plus_one_first_name">
+                First Name
+            </label>
+            <input type="text" name="plus_one_first_name" value="">
+
+        </div>
+
+        <div class="formInputs columns end">
+            <label class="label" for="plus_one_last_name">
+                Last Name
+            </label>
+            <input type="text" name="plus_one_last_name" value="">
+
+        </div>
+    </div>
+    {% endif %}
 
     <div class="formInputs row">
 
@@ -79,10 +107,24 @@
               <input type="text" name="person.{{ forloop.counter0 }}.last_name" value="{{ person.last_name }}">
           </td>
           <td>
-              <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">In Person ☺</option><option value="0">In Spirit ☹</option></select>
+              <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
           </td>
         </tr>
     {% endfor %}
+
+    {% if invitation.plusOne %}
+        <tr class="formInputs">
+          <td>
+              <input type="text" name="plus_one_first_name" value="">
+          </td>
+          <td>
+              <input type="text" name="plus_one_last_name" value="">
+          </td>
+          <td>
+              <select class="attending" name="plus_one_attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+          </td>
+        </tr>
+    {% endif %}
     </tbody>
     </table>
 
