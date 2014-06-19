@@ -20,8 +20,16 @@ Represents an invitation to the wedding
         help_text='An informal name for this invitation'
     )
     comment = models.TextField(
-        # max_length = 2000, TODO: do we want max length?
+        max_length = 2000,
         blank=True
+    )
+    song = models.TextField(
+        max_length = 200,
+        blank=True
+    )
+    plusOne = models.BooleanField(
+        default=False,
+        help_text='Does this invitation get a +1?'
     )
     responded = models.BooleanField(
         default=False,
@@ -55,10 +63,6 @@ Represents a person coming to the wedding
     attending = models.NullBooleanField(
         blank=True,
         null=True
-    )
-    has_plus_one = models.BooleanField(
-        default=False,
-        help_text='Does this person have an unnamed +1?'
     )
     updated = models.DateTimeField(
         auto_now=True
