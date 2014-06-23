@@ -1,6 +1,6 @@
 echo $WORKSPACE
 export PROJECT_NAME=kyleandemily
-export VENV_ROOT=/root/.virtualenvs/${PROJECT_NAME}/
+export VENV_ROOT=/www/.virtualenvs/${PROJECT_NAME}/
 export WEB_ROOT=/www/${PROJECT_NAME}
 
 rm -rvf ${WEB_ROOT}
