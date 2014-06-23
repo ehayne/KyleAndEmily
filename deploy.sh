@@ -19,3 +19,4 @@ rm -f /etc/nginx/sites-enabled/${PROJECT_NAME}.conf
 mv ./nginx.conf /etc/nginx/sites-enabled/${PROJECT_NAME}.conf
 
 python manage.py collectstatic --noinput
+python manage.py migrate --noinput

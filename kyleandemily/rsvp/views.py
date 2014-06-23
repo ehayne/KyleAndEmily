@@ -54,11 +54,11 @@ def lookup(request):
     first_name = request.GET.get('first_name')
     last_name = request.GET.get('last_name')
 
-    person = Person.objects.get(first_name__iexact=first_name,    #TODO: add handling for if hperson doesn't exists - possibly ajax check in page?
+    person = Person.objects.get(first_name__iexact=first_name,
                                 last_name__iexact=last_name)
 
     context = {
-        'invitation': person.invitation
+        'invitation': person.invitation,
     }
 
     if person.invitation.responded:
@@ -85,11 +85,22 @@ def save(request):
         person.attending = True if p_attr('attending') == '1' else False
         person.first_name = p_attr('first_name')
         person.last_name = p_attr('last_name')
-        person.dietary_restrictions = p_attr('dietary_restrictions')
         person.save()
         index += 1
 
+    if invitation.plusOne:
+        additional_guest = request.POST['plus_one_attending']
+        if additional_guest == '1':
+            plusOne = Person.objects.create(invitation=invitation,
+                                    attending= True,
+                                    first_name=request.POST['plus_one_first_name'],
+                                    last_name=request.POST['plus_one_last_name']
+                                    )
+            plusOne.save()
+
     invitation.responded = True
+    invitation.comment = request.POST.get('comment')
+    invitation.song = request.POST.get('song')
     invitation.save()
 
     return render_to_response('thanks.html')
