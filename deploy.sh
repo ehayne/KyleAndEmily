@@ -15,7 +15,7 @@ pip install --upgrade -r ./requirements.txt
 rm -f /etc/uwsgi/apps-enabled/${PROJECT_NAME}.ini
 mv ./wsgi.ini /etc/uwsgi/apps-enabled/${PROJECT_NAME}.ini
 
-rm -f /etc/nginx/conf.d/${PROJECT_NAME}.conf
-mv ./nginx.conf /etc/nginx/conf.d/${PROJECT_NAME}.conf
+rm -f /etc/nginx/sites-enabled/${PROJECT_NAME}.conf
+mv ./nginx.conf /etc/nginx/sites-enabled/${PROJECT_NAME}.conf
 
 python manage.py collectstatic --noinput
