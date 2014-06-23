@@ -1,7 +1,7 @@
 echo $WORKSPACE
 export PROJECT_NAME=kyleandemily
-export VENV_ROOT=/Users/zoeserver/.virtualenvs/${PROJECT_NAME}/
-export WEB_ROOT=/Volumes/STORAGE/Web/${PROJECT_NAME}
+export VENV_ROOT=/root/.virtualenvs/${PROJECT_NAME}/
+export WEB_ROOT=/www/${PROJECT_NAME}
 
 rm -rvf ${WEB_ROOT}
 mkdir ${WEB_ROOT}
