@@ -10,9 +10,9 @@ import os
 import sys
 
 try:
-    activate_this = os.path.join('/Volumes', 'STORAGE', 'Web', 'kyleandemily', '.virtualenv', 'bin', 'activate_this.py')
+    activate_this = os.path.join('/wwww', 'kyleandemily', '.virtualenv', 'bin', 'activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
-    sys.path.append('/Volumes/STORAGE/Web/kyleandemily')
+    sys.path.append('/www/kyleandemily')
 except:
     activate_this = os.path.join(os.getcwd(), '.virtualenv', 'kyleandemily', 'bin', 'activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
