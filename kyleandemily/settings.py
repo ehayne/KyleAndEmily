@@ -27,18 +27,13 @@ DEBUG = True
 TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
-                 'kyleandemily.com',
-                 'media.kyleandemily.com']
+                 'kyleandemily.com']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'default.db'),
     },
-    'wedding': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'wedding.db'),
-    }
 }
 
 
@@ -95,7 +90,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'http://static.kyleandemily.com/'
-MEDIA_ROOT = '/Volumes/STORAGE/Media/kyleandemily'
+MEDIA_ROOT = '/www/media/kyleandemily'
 MEDIA_URL = 'http://media.kyleandemily.com/'
 
 SITE_ID = 1
