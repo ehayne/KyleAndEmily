@@ -27,7 +27,8 @@ DEBUG = True
 TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
-                 'kyleandemily.com']
+                 'kyleandemily.com',
+                 'localhost']
 
 DATABASES = {
     'default': {
