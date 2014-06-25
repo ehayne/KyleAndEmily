@@ -2,8 +2,12 @@
 
 
 {% block wedding-content %}
+<div id="engagement" class="personSection">
     <h2>We're Engaged!!</h2>
+    <p class="personDescription">Welcome everyone to our wedding web site! For those of you who will not be able to make it to our wedding, we thought this would be a great way for us to share our experiences with you. For all who will be attending, information about our wedding will be available for you here.</p>
+    <p class="personDescription">Please check back often as we will be making frequent updates to the website as the plans progress.</p>
     <div id="counter">
+    <p class="personDescription">
     {% if is_married %}
         We're Married!
     {% elif days_left <= 7 %}
@@ -11,7 +15,9 @@
     {% else %}
         Only {{ days_left }} day{{days_left|pluralize}} until the wedding!
     {% endif %}
+    </p>
     </div>
+</div>
     
   <div id="engagement" class="personSection">  
     <h3>When it happened</h3>
@@ -46,12 +52,6 @@
     <h3>How we met</h3>
     <p class="personDescription">
       With 3 days left on Kyle's match.com account, and only 3 days into the start of Emily's match.com account (Emily always was the lucky one), little did the know, this would be the start of an amazing adventure.  After a few messages back and forth, Kyle cut to the chase and asked Emily to meet up at the local coffee shop.  It was a beautiful spring afternoon in downtown Austin, these two talked for hours before realizing they hadn't ordered their coffee or tea yet.  The rest, as they say, is history!
-    </p>
-  </div>
-  
-  <div id="footer" class="personSection">
-    <p>
-      Kyle and Emily built this website together from scratch.
     </p>
   </div>
 {% endblock %}

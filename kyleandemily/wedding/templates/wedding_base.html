@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-
+    
 {% block content %}
+    
 <div id="wrap">
   <div id="imageHeader">
   <span id="textHeader">
@@ -8,8 +9,6 @@
     
     <div id="theDate">
       <div>April 10th, 2015</div>
-      <div>The Winfield Inn</div>
-      <div>Kyle, Texas</div>
     </div>
   </span>
   </div>
@@ -17,8 +16,9 @@
     {% include 'navbar.html' %}
     <div id="content">
       {% block wedding-content %}{% endblock %}
-    </div>
     {% include 'wedding_footer.html' %}
+    </div>
+    <div id="outsideFooter" class="center">Kyle and Emily built this website together from scratch.<div>
 </div>
 {% endblock %}
 
