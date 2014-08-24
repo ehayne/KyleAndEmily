@@ -24,7 +24,8 @@ with open(os.path.join(BASE_DIR, 'key.txt')) as f:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-TEMPLATE_DEBUG = False
+#TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
                  'kyleandemily.com',
@@ -35,7 +36,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'default.db'),
     },
+    'wamp_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DB_ROOT, 'wamp.db'),
+    },
 }
+DATABASE_ROUTERS = ['wamp.db_router.WampRouter']
 
 
 # Application definition
@@ -53,6 +59,7 @@ INSTALLED_APPS = (
     'south',
     'sortedm2m',
     'debug_toolbar',
+    'wamp',
 
     'kyleandemily.wedding',
     'kyleandemily.base',
