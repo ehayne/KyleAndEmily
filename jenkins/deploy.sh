@@ -10,7 +10,7 @@ cd ${WEB_ROOT}
 
 ln -s ${VENV_ROOT} ./.virtualenv
 . ./.virtualenv/bin/activate
-pip install --upgrade -r ./requirements.txt
+pip install -r ./requirements.txt
 
 rm -f /etc/uwsgi/apps-enabled/${PROJECT_NAME}.ini
 mv ./wsgi.ini /etc/uwsgi/apps-enabled/${PROJECT_NAME}.ini
