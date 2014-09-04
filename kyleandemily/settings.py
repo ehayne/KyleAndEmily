@@ -59,7 +59,7 @@ INSTALLED_APPS = (
     'south',
     'sortedm2m',
     'debug_toolbar',
-    'wamp',
+    #'wamp',
 
     'kyleandemily.wedding',
     'kyleandemily.base',
