@@ -41,7 +41,7 @@ DATABASES = {
         'NAME': os.path.join(DB_ROOT, 'wamp.db'),
     },
 }
-DATABASE_ROUTERS = ['wamp.db_router.WampRouter']
+#DATABASE_ROUTERS = ['wamp.db_router.WampRouter']
 
 
 # Application definition
