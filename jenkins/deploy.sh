@@ -13,10 +13,10 @@ ln -s ${VENV_ROOT} ./.virtualenv
 pip install -r ./requirements.txt
 
 rm -f /etc/uwsgi/apps-enabled/${PROJECT_NAME}.ini
-mv ./wsgi.ini /etc/uwsgi/apps-enabled/${PROJECT_NAME}.ini
+mv ./jenkins/wsgi.ini /etc/uwsgi/apps-enabled/${PROJECT_NAME}.ini
 
 rm -f /etc/nginx/sites-enabled/${PROJECT_NAME}.conf
-mv ./nginx.conf /etc/nginx/sites-enabled/${PROJECT_NAME}.conf
+mv ./jenkins/nginx.conf /etc/nginx/sites-enabled/${PROJECT_NAME}.conf
 
 python manage.py collectstatic --noinput
 python manage.py migrate --noinput
