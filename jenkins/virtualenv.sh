@@ -9,4 +9,3 @@ then
 fi
 . ${virtualenv_activate}
 pip install -r requirements.txt
-python setup.py develop
