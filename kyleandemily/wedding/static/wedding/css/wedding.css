@@ -85,6 +85,35 @@ body {
     color: #ffffff;
 }
 
+#couple {
+    clear:left;
+	float:left;
+	width:100%;
+	overflow:hidden;
+}
+#coupleContainer {
+	float:left;
+	width:100%;
+	position:relative;
+	right:50%;
+}
+
+#groom {
+	float:left;
+	width:46%;
+	position:relative;
+	left:52%;
+	overflow:hidden;
+}
+#bride {
+	float:left;
+	width:46%;
+	position:relative;
+	left:56%;
+	overflow:hidden;
+}
+
+
 .personSection {
 	padding: 5px;
 }

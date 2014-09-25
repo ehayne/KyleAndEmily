@@ -8,7 +8,7 @@ from pytz import timezone
 
 WEDDING_DATE = datetime(2015, 04, 10, 14, 0, tzinfo=timezone('US/Central'))
 
-def about(request):
+def home(request):
 
 
     today = datetime.now(tz=timezone('US/Central'))
@@ -21,13 +21,22 @@ def about(request):
     married = WEDDING_DATE < today
 
 
-    template = loader.get_template('about.html')
+    template = loader.get_template('home.html')
     context = RequestContext(request,
     {
         'days_left': days,
         'hours_left': hours,
         'mins_left': mins,
         'is_married': married
+    })
+    return HttpResponse(template.render(context))
+
+def about(request):
+
+    template = loader.get_template('about.html')
+    context = RequestContext(request,
+    {
+        'days_left': 'x',
     })
     return HttpResponse(template.render(context))
 
