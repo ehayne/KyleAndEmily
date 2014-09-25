@@ -113,6 +113,16 @@ body {
 	overflow:hidden;
 }
 
+.headerDivider {
+    border-left: 1px solid #38546d;
+    width: 1px;
+    height: 130px;
+    top: 30px;
+    float:left;
+	position:relative;
+	left:53%;
+	overflow:hidden;
+}
 
 .personSection {
 	padding: 5px;
@@ -132,4 +142,8 @@ body {
 
 .galleryImage img {
     max-width: 40%;
+}
+
+#registry {
+    padding: 5%;
 }
