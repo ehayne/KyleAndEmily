@@ -9,14 +9,9 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 import os
 import sys
 
-try:
-    activate_this = os.path.join('/Volumes', 'STORAGE', 'Web', 'kyleandemily', '.virtualenv', 'bin', 'activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-    sys.path.append('/Volumes/STORAGE/Web/kyleandemily')
-except:
-    activate_this = os.path.join(os.getcwd(), '.virtualenv', 'kyleandemily', 'bin', 'activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-    sys.path.append(os.getcwd())
+activate_this = os.path.join(os.getcwd(), '.virtualenv', 'bin', 'activate_this.py')
+execfile(activate_this, dict(__file__=activate_this))
+sys.path.append(os.getcwd())
     
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kyleandemily.settings")

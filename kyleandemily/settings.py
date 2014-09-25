@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-DB_ROOT = '/Volumes/STORAGE/Database/kyleandemily'
+DB_ROOT = '/www/database/kyleandemily'
 
 
 
@@ -24,22 +24,24 @@ with open(os.path.join(BASE_DIR, 'key.txt')) as f:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-TEMPLATE_DEBUG = False
+#TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
                  'kyleandemily.com',
-                 'media.kyleandemily.com']
+                 'localhost']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'default.db'),
     },
-    'wedding': {
+    'wamp_db': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'wedding.db'),
-    }
+        'NAME': os.path.join(DB_ROOT, 'wamp.db'),
+    },
 }
+#DATABASE_ROUTERS = ['wamp.db_router.WampRouter']
 
 
 # Application definition
@@ -57,6 +59,7 @@ INSTALLED_APPS = (
     'south',
     'sortedm2m',
     'debug_toolbar',
+    #'wamp',
 
     'kyleandemily.wedding',
     'kyleandemily.base',
@@ -95,7 +98,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'http://static.kyleandemily.com/'
-MEDIA_ROOT = '/Volumes/STORAGE/Media/kyleandemily'
+MEDIA_ROOT = '/www/media/kyleandemily'
 MEDIA_URL = 'http://media.kyleandemily.com/'
 
 SITE_ID = 1
