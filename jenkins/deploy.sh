@@ -4,7 +4,7 @@ export APP_VERSION=`git rev-parse HEAD | cut -c -12`
 export VENV_VERSION=`sha1sum ./requirements.txt | cut -c -12`
 export ROOT="/usr/local/$PROJECT_NAME"
 export APP_DIR="$ROOT/app_versions/$APP_VERSION"
-export VENV_DIR="$ROOT/venv_versions//$VENV_VERSION"
+export VENV_DIR="$ROOT/venv_versions/$VENV_VERSION"
 export TEST_APP_DIR="$ROOT/app_test"
 export ACTIVE_APP_DIR="$ROOT/app_prod"
 export ACTIVE_VENV_DIR="$ROOT/app_venv"
@@ -38,4 +38,4 @@ ln -snf "$APP_DIR" "$ACTIVE_APP_DIR"
 ln -snf "$VENV_DIR" "$ACTIVE_VENV_DIR"
 
 cp -f "$WORKSPACE/jenkins/nginx.conf" "/etc/nginx/sites-enabled/$PROJECT_NAME.conf"
-cp -f "$WORKSPACE/jenkins/uwsgi.conf" "/usr/local/uwsgi/confs/$PROJECT_NAME.conf"
+cp -f "$WORKSPACE/jenkins/uwsgi.ini" "/usr/local/uwsgi/confs/$PROJECT_NAME.ini"
