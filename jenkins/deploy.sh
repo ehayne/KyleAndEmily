@@ -5,6 +5,7 @@ export VENV_VERSION=`sha1sum ./requirements.txt | cut -c -12`
 export ROOT="/usr/local/$PROJECT_NAME"
 export APP_DIR="$ROOT/app_versions/$APP_VERSION"
 export VENV_DIR="$ROOT/venv_versions//$VENV_VERSION"
+export TEST_APP_DIR="$ROOT/app_test"
 export ACTIVE_APP_DIR="$ROOT/app_prod"
 export ACTIVE_VENV_DIR="$ROOT/app_venv"
 export MEDIA_DIR="$ROOT/media"
@@ -28,12 +29,13 @@ else
   . "$VENV_DIR/bin/activate"
 fi
 
-cd "$APP_DIR"
+ln -snf "$APP_DIR" "$TEST_APP_DIR"
+cd "$TEST_APP_DIR"
 python manage.py collectstatic --noinput
 python manage.py migrate --noinput
 
 ln -snf "$APP_DIR" "$ACTIVE_APP_DIR"
 ln -snf "$VENV_DIR" "$ACTIVE_VENV_DIR"
 
-cp -f "`pwd`/jenkins/nginx.conf" "/etc/nginx/site-enabled/$PROJECT_NAME.conf"
-cp -f "`pwd`/jenkins/wsgi.conf" "/usr/local/uwsgi/confs/$PROJECT_NAME.conf"
+cp -f "$WORKSPACE/jenkins/nginx.conf" "/etc/nginx/site-enabled/$PROJECT_NAME.conf"
+cp -f "$WORKSPACE/jenkins/wsgi.conf" "/usr/local/uwsgi/confs/$PROJECT_NAME.conf"
