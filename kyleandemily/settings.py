@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
-ROOT = os.path.dirname(PROJECT_DIR)
+ROOT = '/usr/local/kyleandemily'
 DB_ROOT = os.path.join(ROOT, 'databases')
 
 
