@@ -8,10 +8,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-DB_ROOT = '/www/database/kyleandemily'
+PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
+ROOT = os.path.dirname(PROJECT_DIR)
+DB_ROOT = os.path.join(ROOT, 'databases')
 
 
 
@@ -19,7 +20,7 @@ DB_ROOT = '/www/database/kyleandemily'
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open(os.path.join(BASE_DIR, 'key.txt')) as f:
+with open(os.path.join(PROJECT_DIR, 'key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -29,6 +30,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
                  'kyleandemily.com',
+                 'static.kyleandemily.com',
+                 'media.kyleandemily.com',
                  'localhost']
 
 DATABASES = {
@@ -98,7 +101,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'http://static.kyleandemily.com/'
-MEDIA_ROOT = '/www/media/kyleandemily'
+MEDIA_ROOT = os.path.join(ROOT, 'media')
 MEDIA_URL = 'http://media.kyleandemily.com/'
 
 SITE_ID = 1
