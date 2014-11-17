@@ -99,7 +99,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = 'http://static.kyleandemily.com/'
 MEDIA_ROOT = os.path.join(ROOT, 'media')
 MEDIA_URL = 'http://media.kyleandemily.com/'
