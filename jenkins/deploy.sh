@@ -38,4 +38,4 @@ ln -snf "$APP_DIR" "$ACTIVE_APP_DIR"
 ln -snf "$VENV_DIR" "$ACTIVE_VENV_DIR"
 
 cp -f "$WORKSPACE/jenkins/nginx.conf" "/etc/nginx/sites-enabled/$PROJECT_NAME.conf"
-cp -f "$WORKSPACE/jenkins/wsgi.conf" "/usr/local/uwsgi/confs/$PROJECT_NAME.conf"
+cp -f "$WORKSPACE/jenkins/uwsgi.conf" "/usr/local/uwsgi/confs/$PROJECT_NAME.conf"
