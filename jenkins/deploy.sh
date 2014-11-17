@@ -13,8 +13,11 @@ export DB_DIR="$ROOT/db"
 mkdir -p "$MEDIA_DIR"
 mkdir -p "$DB_DIR"
 
-mkdir -p "$APP_DIR"
-cp -rv "./." "$APP_DIR"
+if [[ ! -e "$APP_DIR" ]]
+then
+  mkdir -p "$APP_DIR"
+  cp -rv "./." "$APP_DIR"
+fi
 
 if [[ ! -e "$VENV_DIR/bin/activate" ]]
 then
