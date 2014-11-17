@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 ROOT = '/usr/local/kyleandemily'
-DB_ROOT = os.path.join(ROOT, 'databases')
+DB_ROOT = os.path.join(ROOT, 'db')
 
 
 
