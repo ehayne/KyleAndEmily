@@ -8,9 +8,11 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
 import os
 import sys
-
-activate_this = os.path.join(os.getcwd(), '.virtualenv', 'bin', 'activate_this.py')
-execfile(activate_this, dict(__file__=activate_this))
+try:
+    activate_this = os.path.join(os.getcwd(), '.virtualenv', 'bin', 'activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+except:
+    pass
 sys.path.append(os.getcwd())
     
 
