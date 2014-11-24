@@ -98,14 +98,14 @@ body {
 	right:50%;
 }
 
-#groom {
+#GoLeft {
 	float:left;
 	width:46%;
 	position:relative;
 	left:52%;
 	overflow:hidden;
 }
-#bride {
+#GoRight {
 	float:left;
 	width:46%;
 	position:relative;
@@ -145,5 +145,9 @@ body {
 }
 
 #registry {
+    padding: 5%;
+}
+
+#homeImage {
     padding: 5%;
 }

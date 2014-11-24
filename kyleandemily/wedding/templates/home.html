@@ -1,20 +1,28 @@
 {% extends "wedding_base.html" %}
+{%  load static %}
 
 {% block wedding-content %}
 <div id="engagement" class="personSection">
-    <h2>We're Engaged!!</h2>
-    <p class="personDescription">Welcome everyone to our wedding web site! Information about our wedding will be available for you here.</p>
-    <p class="personDescription">Please check back often as we will be making frequent updates to the website as the plans progress.</p>
-    <div id="counter">
-    <p class="personDescription">
-    {% if is_married %}
-        We're Married!
-    {% elif days_left <= 7 %}
-        Only {{ days_left }} day{{days_left|pluralize}}, {{ hours_left }} hour{{hours_left|pluralize}} and {{ mins_left }} min{{mins_left|pluralize}} until the wedding!
-    {% else %}
-        Only {{ days_left }} day{{days_left|pluralize}} until the wedding!
-    {% endif %}
-    </p>
+    <h2>We're getting married!</h2>
+    <div id="coupleContainer">
+      <div id="GoLeft">
+        <p class="personDescription">Welcome to our wedding web site!  We can't wait to share our special day with you all. Information about our wedding will be available for you here.</p>
+        <p class="personDescription">Please check back often as we will be making frequent updates to the website as the plans progress.</p>
+        <div id="counter">
+        <p class="personDescription">
+        {% if is_married %}
+          We're Married!
+        {% elif days_left <= 7 %}
+          Only {{ days_left }} day{{days_left|pluralize}}, {{ hours_left }} hour{{hours_left|pluralize}} and {{ mins_left }} min{{mins_left|pluralize}} until the wedding!
+        {% else %}
+          Only {{ days_left }} day{{days_left|pluralize}} until the wedding!
+        {% endif %}
+        </p>
+       </div>
+    </div>
+      <div id="GoRight">
+          <img id="homeImage" src={% static 'wedding/img/engaged.jpg' %} alt="We're Engaged!">
+      </div>
     </div>
 </div>
 
