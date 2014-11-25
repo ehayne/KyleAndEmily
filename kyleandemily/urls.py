@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url, handler404, handler500
 from django.conf.urls.static import static
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic.base import RedirectView
 
 
@@ -11,7 +12,7 @@ import kyleandemily.views as views
 
 urlpatterns = patterns(
     '',
-    url(r'^$', RedirectView.as_view(url='/wedding', permanent=False), name='index'),
+    url(r'^$', RedirectView.as_view(url=reverse_lazy('^wedding/'), permanent=False), name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^wedding/', include('kyleandemily.wedding.urls')),
     url(r'^photologue/', include('photologue.urls')),
