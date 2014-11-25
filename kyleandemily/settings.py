@@ -43,8 +43,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'wamp.db'),
     },
+    'wedding_photo_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DB_ROOT, 'wedding_photo.db'),
+    },
 }
 #DATABASE_ROUTERS = ['wamp.db_router.WampRouter']
+DATABASE_ROUTERS = ['wedding.db_router.PhotologueRouter']
 
 
 # Application definition
