@@ -10,9 +10,10 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 import os
+APP_ENV = os.environ.get('APP_ENV', 'prod')
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 ROOT = '/usr/local/kyleandemily'
-DB_ROOT = os.path.join(ROOT, 'db')
+DB_ROOT = os.path.join(ROOT, 'db_' + APP_ENV)
 
 
 
@@ -24,9 +25,9 @@ with open(os.path.join(PROJECT_DIR, 'key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#TEMPLATE_DEBUG = False
-TEMPLATE_DEBUG = True
+if APP_ENV != "prod":
+    DEBUG = True
+    TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
                  'kyleandemily.com',
@@ -105,9 +106,15 @@ USE_TZ = True
 
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-STATIC_URL = 'http://static.kyleandemily.com/'
 MEDIA_ROOT = os.path.join(ROOT, 'media')
-MEDIA_URL = 'http://media.kyleandemily.com/'
+
+# TODO: take this out because subdomains have been updated
+if APP_ENV == "prod":
+    STATIC_URL = 'http://static.kyleandemily.com/'
+    MEDIA_URL = 'http://media.kyleandemily.com/'
+else:
+    STATIC_URL = 'http://' + APP_ENV + '.static.kyleandemily.com/'
+    MEDIA_URL = 'http://' + APP_ENV + '.media.kyleandemily.com/'
 
 SITE_ID = 1
 
