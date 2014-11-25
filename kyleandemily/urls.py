@@ -11,7 +11,7 @@ import kyleandemily.views as views
 
 urlpatterns = patterns(
     '',
-    url(r'^.*$', RedirectView.as_view(url='/wedding', permanent=False), name='index'),
+    url(r'^$', RedirectView.as_view(url='/wedding', permanent=False), name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^wedding/', include('kyleandemily.wedding.urls')),
     url(r'^photologue/', include('photologue.urls')),
