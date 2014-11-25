@@ -14,6 +14,7 @@ body {
       margin: 20px auto;
       padding: 20px 20px 5px 20px;
       background-color: #97c3a2; /* mint green */
+      border-radius: 25px;
 }
 
 #content {
@@ -21,6 +22,7 @@ body {
     background-color: #ffffff;  /* white */
     color: #000000; /* black */
     border: 4px solid #cccccc;
+    border-radius: 25px;
 }
 
 #imageHeader {
@@ -30,6 +32,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   border: 4px solid #cccccc;
+  border-radius: 25px;
 }
 
 #textHeader {
