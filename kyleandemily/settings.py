@@ -106,7 +106,7 @@ USE_TZ = True
 
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-MEDIA_ROOT = os.path.join(ROOT, 'media')
+MEDIA_ROOT = os.path.join(ROOT, 'media_' + APP_ENV)
 
 # TODO: take this out because subdomains have been updated
 if APP_ENV == "prod":
@@ -127,3 +127,4 @@ try:
     from kyleandemily.local_settings import *
 except ImportError:
     pass
+
