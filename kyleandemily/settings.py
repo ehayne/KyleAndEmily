@@ -49,7 +49,7 @@ DATABASES = {
     },
 }
 #DATABASE_ROUTERS = ['wamp.db_router.WampRouter']
-DATABASE_ROUTERS = ['wedding.db_router.PhotologueRouter']
+DATABASE_ROUTERS = ['kyleandemily.wedding.db_router.PhotologueRouter']
 
 
 # Application definition
