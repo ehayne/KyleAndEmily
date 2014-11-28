@@ -10,11 +10,14 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 import os
-APP_ENV = os.environ.get('APP_ENV', 'prod')
+APP_ENV = os.environ.get('APP_ENV', 'local')
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
-ROOT = '/usr/local/kyleandemily'
-DB_ROOT = os.path.join(ROOT, 'db_' + APP_ENV)
+REMOTE_ROOT = '/usr/local/kyleandemily'
 
+if APP_ENV == "local":
+    DB_ROOT = PROJECT_DIR
+else:
+    DB_ROOT = os.path.join(ROOT, 'db_' + APP_ENV)
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,8 +34,6 @@ if APP_ENV != "prod":
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
                  'kyleandemily.com',
-                 'static.kyleandemily.com',
-                 'media.kyleandemily.com',
                  'localhost']
 
 DATABASES = {
@@ -104,15 +105,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-MEDIA_ROOT = os.path.join(ROOT, 'media_' + APP_ENV)
-
-# TODO: take this out because subdomains have been updated
-if APP_ENV == "prod":
-    STATIC_URL = 'http://static.kyleandemily.com/'
-    MEDIA_URL = 'http://media.kyleandemily.com/'
+if APP_ENV == "local":
+    STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+    STATIC_URL = '/static/'
+    MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+    MEDIA_URL = '/media/'
 else:
+    STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+    MEDIA_ROOT = os.path.join(REMOTE_ROOT, 'media_' + APP_ENV)
     STATIC_URL = 'http://' + APP_ENV + '.static.kyleandemily.com/'
     MEDIA_URL = 'http://' + APP_ENV + '.media.kyleandemily.com/'
 
