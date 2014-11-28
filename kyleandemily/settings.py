@@ -17,7 +17,7 @@ REMOTE_ROOT = '/usr/local/kyleandemily'
 if APP_ENV == "local":
     DB_ROOT = PROJECT_DIR
 else:
-    DB_ROOT = os.path.join(ROOT, 'db_' + APP_ENV)
+    DB_ROOT = os.path.join(REMOTE_ROOT, 'db_' + APP_ENV)
 
 
 # Quick-start development settings - unsuitable for production
