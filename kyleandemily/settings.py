@@ -69,6 +69,7 @@ INSTALLED_APPS = (
     'south',
     'sortedm2m',
     'debug_toolbar',
+    'raven.contrib.django.raven_compat',
     #'wamp',
 
     'kyleandemily.wedding',
@@ -122,6 +123,10 @@ from photologue import PHOTOLOGUE_APP_DIR
 TEMPLATE_DIRS = (
     PHOTOLOGUE_APP_DIR,
 )
+
+RAVEN_CONFIG = {
+    'dsn': 'http://8e93f45b82f34f629cbd65ab129f2f08:80de27c57bba414096b01881bd9e5b65@sentry.rocktavious.com/2',
+}
 
 try:
     from kyleandemily.local_settings import *
