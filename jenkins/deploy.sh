@@ -37,7 +37,7 @@ python manage.py syncdb --noinput --database="wedding_photo_db"
 python manage.py syncdb --noinput --database="rsvp_db"
 python manage.py migrate --noinput
 python manage.py migrate --noinput --database="wedding_photo_db"
-python manage.py migrate --noinput --database="rsvp_db"
+python manage.py migrate rsvp --noinput --database="rsvp_db"
 
 ln -snf "$APP_DIR" "$ACTIVE_APP_DIR"
 ln -snf "$VENV_DIR" "$ACTIVE_VENV_DIR"
