@@ -49,9 +49,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'wedding_photo.db'),
     },
+    'rsvp_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DB_ROOT, 'rsvp.db'),
+    },
 }
-#DATABASE_ROUTERS = ['wamp.db_router.WampRouter']
-DATABASE_ROUTERS = ['kyleandemily.wedding.db_router.PhotologueRouter']
+
+DATABASE_ROUTERS = [
+    'kyleandemily.wedding.db_router.PhotologueRouter',
+    'kyleandemily.rsvp.db_router.RSVPRouter',
+    #'wamp.db_router.WampRouter',
+]
 
 
 # Application definition

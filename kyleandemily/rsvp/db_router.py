@@ -1,11 +1,11 @@
 
-class PhotologueRouter(object):
+class RSVPRouter(object):
     """
     A router to control all database operations on models in the
-    photologue application.
+    rsvp application.
     """
-    app_label = "photologue"
-    using = "wedding_photo_db"
+    app_label = "rsvp"
+    using = "rsvp_db"
     
     def db_for_read(self, model, **hints):
         if model._meta.app_label == self.app_label:
