@@ -4,16 +4,16 @@ class PhotologueRouter(object):
     A router to control all database operations on models in the
     photologue application.
     """
-    app_label = "photologue"
+    apps = ["photologue"]
     using = "wedding_photo_db"
     
     def db_for_read(self, model, **hints):
-        if model._meta.app_label == self.app_label:
+        if model._meta.app_label in self.apps:
             return self.using
         return None
 
     def db_for_write(self, model, **hints):
-        if model._meta.app_label == self.app_label:
+        if model._meta.app_label in self.apps:
             return self.using
         return None
     
@@ -21,7 +21,7 @@ class PhotologueRouter(object):
         """
         Allow relations if a model in the app is involved.
         """
-        if obj1._meta.app_label == self.app_label or obj2._meta.app_label == self.app_label:
+        if obj1._meta.app_label in self.apps or obj2._meta.app_label in self.apps:
             return True
         return None
     
@@ -30,14 +30,14 @@ class PhotologueRouter(object):
         if model._meta.app_label in ['south']:
             return True
         if db == self.using:
-            return model._meta.app_label == self.app_label
-        elif model._meta.app_label == self.app_label:
+            return model._meta.app_label in self.apps
+        elif model._meta.app_label in self.apps:
             return False
         return None
     
     def allow_migrate(self, db, model):
         if db == self.using:
-            return model._meta.app_label == self.app_label
-        elif model._meta.app_label == self.app_label:
+            return model._meta.app_label in self.apps
+        elif model._meta.app_label in self.apps:
             return False
         return None
