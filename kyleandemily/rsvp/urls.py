@@ -8,9 +8,6 @@ import kyleandemily.rsvp.views as rsvp_views
 
 urlpatterns = patterns(
     '',
-
-    url(r'^.admin/', include(admin.site.urls)),
-
     url(r'^lookup/$',
         rsvp_views.lookup,
         name='lookup'),
