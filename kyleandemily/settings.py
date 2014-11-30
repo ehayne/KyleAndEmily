@@ -89,8 +89,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'kyleandemily.urls'
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
-
 WSGI_APPLICATION = 'kyleandemily.wsgi.application'
 
 # Internationalization
@@ -106,6 +104,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
+
 if APP_ENV == "local":
     STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
     STATIC_URL = '/static/'
@@ -117,7 +117,7 @@ else:
     STATIC_URL = 'http://' + APP_ENV + '.static.kyleandemily.com/'
     MEDIA_URL = 'http://' + APP_ENV + '.media.kyleandemily.com/'
 
-SITE_ID = 1
+
 
 from photologue import PHOTOLOGUE_APP_DIR
 TEMPLATE_DIRS = (
@@ -127,6 +127,8 @@ TEMPLATE_DIRS = (
 RAVEN_CONFIG = {
     'dsn': 'http://8e93f45b82f34f629cbd65ab129f2f08:80de27c57bba414096b01881bd9e5b65@sentry.rocktavious.com/2',
 }
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 try:
     from kyleandemily.local_settings import *

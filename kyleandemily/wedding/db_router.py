@@ -25,6 +25,16 @@ class PhotologueRouter(object):
             return True
         return None
     
+    def allow_syncdb(self, db, model):
+        """Make sure the apps we care about appear in the db"""
+        if model._meta.app_label in ['south']:
+            return True
+        if db == self.using:
+            return model._meta.app_label == self.app_label
+        elif model._meta.app_label == self.app_label:
+            return False
+        return None
+    
     def allow_migrate(self, db, model):
         if db == self.using:
             return model._meta.app_label == self.app_label
