@@ -41,10 +41,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'default.db'),
     },
-    'wamp_db': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'wamp.db'),
-    },
+    #'wamp_db': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(DB_ROOT, 'wamp.db'),
+    #},
     'wedding_photo_db': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'wedding_photo.db'),
