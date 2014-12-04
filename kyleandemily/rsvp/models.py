@@ -27,6 +27,10 @@ Represents an invitation to the wedding
         max_length=200,
         blank=True
     )
+    helloGoodbyeInvite = models.BooleanField(
+        default=False,
+        help_text='Is this person invited to the welcome dinner and farewell lunch?'
+    )
     plusOne = models.BooleanField(
         default=False,
         help_text='Does this invitation get a +1?'
@@ -60,7 +64,15 @@ Represents a person coming to the wedding
         max_length=128,
         blank=True
     )
-    attending = models.NullBooleanField(
+    attendingWedding = models.NullBooleanField(
+        blank=True,
+        null=True
+    )
+    attendingWelcome = models.NullBooleanField(
+        blank=True,
+        null=True
+    )
+    attendingFarewell = models.NullBooleanField(
         blank=True,
         null=True
     )
