@@ -45,7 +45,7 @@ Represents an invitation to the wedding
 
     @property
     def guests(self):
-        return self.people.filter(attending=True).count()
+        return self.people.filter(attendingWedding=True).count()
 
 
 class Person(models.Model):
