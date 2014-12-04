@@ -1,97 +1,14 @@
 {% extends "wedding_base.html" %}
 
 {% block wedding-content %}
+
 <form name="people" id="people" method="POST" action="{% url "save" %}">
-    {% csrf_token %}
-    <input type="hidden" name="invitation_id" value="{{ invitation.id }}">
-
-    <h3>{{ invitation.name }}</h3>
-
-    <p>Hooray! We found your invitation. Please confirm your guest details below.</p>
-
-    {% for person in invitation.people.all %}
-    <h5 class="huge-margin-top">Guest #{{ forloop.counter }}</h5>
-
-    <div class="row text-left">
-        <div class="formInputs columns">
-            <label class="label" for="person.{{ forloop.counter0 }}.attending">
-                Attending?
-            </label>
-            <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
-        </div>
-
-        <div class="formInputs columns">
-            <label class="label" for="person.{{ forloop.counter0 }}.first_name">
-                First Name
-            </label>
-            <input type="text" name="person.{{ forloop.counter0 }}.first_name" value="{{ person.first_name }}">
-
-        </div>
-
-        <div class="formInputs columns end">
-            <label class="label" for="person.{{ forloop.counter0 }}.last_name">
-                Last Name
-            </label>
-            <input type="text" name="person.{{ forloop.counter0 }}.last_name" value="{{ person.last_name }}">
-
-        </div>
-    </div>
-
-    {% endfor %}
-    {% if invitation.plusOne %}
-    <h5 class="huge-margin-top">Plus One</h5>
-
-    <div class="row text-left">
-        <div class="formInputs columns">
-            <label class="label" for="plus_one_attending">
-                Attending?
-            </label>
-            <select class="attending" name="plus_one_attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
-        </div>
-
-        <div class="formInputs columns">
-            <label class="label" for="plus_one_first_name">
-                First Name
-            </label>
-            <input type="text" name="plus_one_first_name" value="">
-
-        </div>
-
-        <div class="formInputs columns end">
-            <label class="label" for="plus_one_last_name">
-                Last Name
-            </label>
-            <input type="text" name="plus_one_last_name" value="">
-
-        </div>
-    </div>
-    {% endif %}
-
-    <div class="formInputs row">
-
-        <div class="medium-6 medium-offset-3 columns">
-            <label class="label" for="song">
-                Song Request:
-            </label>
-            <input type="text" name="song" value="{{ invitation.song }}" >
-        </div>
-
-        <div class="medium-6 medium-offset-3 columns">
-            <label class="label" for="comment">
-                Comment for the Couple:
-            </label>
-            <textarea name="comment">{{ invitation.comment }}</textarea>
-        </div>
-
-    </div>
-
-    <button type="submit" class="huge-margin-top submit button">Save Guest Details</button>
-</form>
-<hr>
-<form name="people" id="people" method="POST" action="{% url "save" %}">
+{% csrf_token %}
+<input type="hidden" name="invitation_id" value="{{ invitation.id }}">
     <table>
         <thead>
         <tr class="label">
+          <td></td>
           <td>First Name</td>
           <td>Last Name</td>
           <td>Attending?</td>
@@ -99,14 +16,20 @@
         </thead>
     <tbody>
     {% for person in invitation.people.all %}
-        <tr class="formInputs">
-          <td>
-              <input type="text" name="person.{{ forloop.counter0 }}.first_name" value="{{ person.first_name }}">
+        <tr class="formInputs" data-value="{{ forloop.counter0 }}">
+          <td class="editButtons">
+            <p class="editButton" id="editButton{{ forloop.counter0 }}">Edit</p>
+            <p class="completeEditButton editable" id="completeEdit{{ forloop.counter0 }}">Done</p>
           </td>
-          <td>
-              <input type="text" name="person.{{ forloop.counter0 }}.last_name" value="{{ person.last_name }}">
+          <td class="firstName">
+              <input class="editName{{ forloop.counter0 }} editable" type="text" name="person.{{ forloop.counter0 }}.first_name" value="{{ person.first_name }}">
+              <p class="viewName{{ forloop.counter0 }}">{{ person.first_name }}</p>
           </td>
-          <td>
+          <td class="lastName">
+              <input class="editName{{ forloop.counter0 }} editable" type="text" name="person.{{ forloop.counter0 }}.last_name" value="{{ person.last_name }}">
+              <p class="viewName{{ forloop.counter0 }}">{{ person.last_name }}</p>
+          </td>
+          <td class="rsvp">
               <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
           </td>
         </tr>
@@ -184,7 +107,7 @@
                     });
                 },
                 error: function(jqXHR, status) {
-                    show_error("Oops! We failed to save your response. Yell at Evan to fix this!");
+                    show_error("Oops! We failed to save your response. Yell at Emily to fix this!");
                 }
             });
     });

@@ -32,6 +32,13 @@ if APP_ENV != "prod":
     DEBUG = True
     TEMPLATE_DEBUG = True
 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'donotreply8386@gmail.com'
+EMAIL_HOST_PASSWORD = 'password8386'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 ALLOWED_HOSTS = ['www.kyleandemily.com',
                  'kyleandemily.com',
                  'localhost']

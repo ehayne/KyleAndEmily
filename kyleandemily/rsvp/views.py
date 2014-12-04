@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, render_to_response, HttpResponseRedirect
 from django.template import RequestContext
+from django.core.mail import send_mail
 
 from .models import Person, Invitation
 
@@ -102,5 +103,9 @@ def save(request):
     invitation.comment = request.POST.get('comment')
     invitation.song = request.POST.get('song')
     invitation.save()
+
+    # todo: send email notifying us someone responded
+    send_mail('Wedding RSVP Received', 'Here is the message.', 'donotreply8386@gmail.com',
+    ['buschang.rockman.wedding@gmail.com'], fail_silently=False)
 
     return render_to_response('thanks.html')
