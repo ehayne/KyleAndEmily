@@ -28,4 +28,22 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(".editable").hide();
+
+    $(".editButton").click(function(){
+      var $occ = $(this).closest('tr').data('value');
+      $('.editName' + $occ).show();
+      $(".viewName" + $occ).hide();
+      $("#editButton" + $occ).hide();
+      $("#completeEdit" + $occ).show();
+    });
+
+    $(".completeEditButton").click(function(){
+      var $occ = $(this).closest('tr').data('value');
+      $(".editName" + $occ).hide();
+      $(".viewName" + $occ).show();
+      $("#editButton" + $occ).show();
+      $("#completeEdit" + $occ).hide();
+    });
 });
