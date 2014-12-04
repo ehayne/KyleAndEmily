@@ -12,6 +12,10 @@
           <td>First Name</td>
           <td>Last Name</td>
           <td>Attending?</td>
+          {% if invitation.helloGoodbyeInvite %}
+          <td>Attending Welcome Dinner</td>
+          <td>Attending Farewell Lunch</td>
+          {% endif %}
         </tr>
         </thead>
     <tbody>
@@ -30,8 +34,16 @@
               <p class="viewName{{ forloop.counter0 }}">{{ person.last_name }}</p>
           </td>
           <td class="rsvp">
-              <select class="attending" name="person.{{ forloop.counter0 }}.attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWedding"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
           </td>
+          {%  if invitation.helloGoodbyeInvite %}
+            <td class="rsvp">
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWelcome"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+          </td>
+          <td class="rsvp">
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+          </td>
+          {% endif %}
         </tr>
     {% endfor %}
 

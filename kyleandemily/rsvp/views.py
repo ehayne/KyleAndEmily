@@ -85,7 +85,9 @@ def save(request):
             "Closure to make getting attrs from persons easier"
             return persons['person'][str(index)][name]
 
-        person.attending = True if p_attr('attending') == '1' else False
+        person.attendingWedding = True if p_attr('attendingWedding') == '1' else False
+        person.attendingWelcome = True if p_attr('attendingWelcome') == '1' else False
+        person.attendingFarewell = True if p_attr('attendingFarewell') == '1' else False
         person.first_name = p_attr('first_name')
         person.last_name = p_attr('last_name')
         person.save()
@@ -95,7 +97,7 @@ def save(request):
         additional_guest = request.POST['plus_one_attending']
         if additional_guest == '1':
             plusOne = Person.objects.create(invitation=invitation,
-                                    attending= True,
+                                    attendingWedding= True,
                                     first_name=request.POST['plus_one_first_name'],
                                     last_name=request.POST['plus_one_last_name']
                                     )

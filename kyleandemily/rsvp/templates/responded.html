@@ -14,14 +14,36 @@
     <div class="row text-left">
         <div class="medium-6 medium-offset-3 columns">
             <label>
-                Attending:
+                Attending Wedding:
             </label>
-            {% if  person.attending %}
+            {% if person.attendingWedding %}
               Yes
             {% else %}
               No
             {%  endif %}
         </div>
+        {%  if invitation.helloGoodbyeInvite %}
+        <div class="medium-6 medium-offset-3 columns">
+            <label>
+                Attending Welcome Dinner:
+            </label>
+            {% if person.attendingWelcome %}
+              Yes
+            {% else %}
+              No
+            {%  endif %}
+        </div>
+        <div class="medium-6 medium-offset-3 columns">
+            <label>
+                Attending Farewell Lunch:
+            </label>
+            {% if person.attendingFarewell %}
+              Yes
+            {% else %}
+              No
+            {%  endif %}
+        </div>
+        {% endif %}
         <div class="small-6 medium-3 medium-offset-3 columns">
             <label>
                 First Name:
