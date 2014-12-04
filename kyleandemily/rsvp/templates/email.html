@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>{{ invitation.name }} has responded!</p>
+<p></p>
+  <table>
+      <thead>
+      <tr>
+        <td>Attending?</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+      </tr>
+    </thead>
+    <tbody>
+    {% for person in invitation.people.all %}
+        <tr>
+          <td>{{ person.attending }}</td>
+          <td>{{ person.first_name }}</td>
+          <td>{{ person.last_name }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+<p> Comment: {{ invitation.comment }}</p>
+</body>
