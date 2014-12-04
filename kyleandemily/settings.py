@@ -139,9 +139,14 @@ TEMPLATE_DIRS = (
     PHOTOLOGUE_APP_DIR,
 )
 
-RAVEN_CONFIG = {
-    'dsn': 'http://8e93f45b82f34f629cbd65ab129f2f08:80de27c57bba414096b01881bd9e5b65@sentry.rocktavious.com/2',
-}
+if APP_ENV == "prod":
+    RAVEN_CONFIG = {
+        'dsn': 'http://8e93f45b82f34f629cbd65ab129f2f08:80de27c57bba414096b01881bd9e5b65@sentry.rocktavious.com/2',
+    }
+else:
+    RAVEN_CONFIG = {
+        'dsn': 'http://d23b2be3932b441a95ead317bbcaa192:9f2d380f50a14ee48cde6f88099cad15@sentry.rocktavious.com/4',
+    }
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
