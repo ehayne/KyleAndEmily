@@ -32,11 +32,13 @@ fi
 ln -snf "$APP_DIR" "$TEST_APP_DIR"
 cd "$TEST_APP_DIR"
 python manage.py collectstatic --noinput
-python manage.py migrate photologue --noinput --database="wedding_photo_db"
-python manage.py migrate rsvp --noinput --database="rsvp_db"
 
 ln -snf "$APP_DIR" "$ACTIVE_APP_DIR"
 ln -snf "$VENV_DIR" "$ACTIVE_VENV_DIR"
+
+cd "$ACTIVE_APP_DIR"
+python manage.py migrate photologue --noinput --database="wedding_photo_db"
+python manage.py migrate rsvp --noinput --database="rsvp_db"
 
 cp -f "$WORKSPACE/jenkins/nginx.conf" "/etc/nginx/sites-enabled/$PROJECT_NAME.conf"
 cp -f "$WORKSPACE/jenkins/uwsgi_$APP_ENV.ini" "/usr/local/uwsgi/confs/${PROJECT_NAME}_$APP_ENV.ini"
