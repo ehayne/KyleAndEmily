@@ -22,8 +22,8 @@
     {% for person in invitation.people.all %}
         <tr class="formInputs" data-value="{{ forloop.counter0 }}">
           <td class="editButtons">
-            <p class="editButton" id="editButton{{ forloop.counter0 }}">Edit</p>
-            <p class="completeEditButton editable" id="completeEdit{{ forloop.counter0 }}">Done</p>
+            <p class="editButton buttons" id="editButton{{ forloop.counter0 }}">Edit</p>
+            <p class="completeEditButton editable buttons" id="completeEdit{{ forloop.counter0 }}">Done</p>
           </td>
           <td class="firstName">
               <input class="editName{{ forloop.counter0 }} editable" type="text" name="person.{{ forloop.counter0 }}.first_name" value="{{ person.first_name }}">
@@ -49,6 +49,7 @@
 
     {% if invitation.plusOne %}
         <tr class="formInputs">
+          <td></td>
           <td>
               <input type="text" name="plus_one_first_name" value="">
           </td>
@@ -66,18 +67,11 @@
 
     <div class="formInputs row">
 
-        <div class="medium-6 medium-offset-3 columns">
-            <label class="label" for="song">
-                Song Request:
-            </label>
-            <input type="text" name="song" value="{{ invitation.song }}" >
-        </div>
-
-        <div class="medium-6 medium-offset-3 columns">
+        <div class="medium-6 medium-offset-3 columns" id="guestComment">
             <label class="label" for="comment">
                 Comment for the Couple:
             </label>
-            <textarea name="comment">{{ invitation.comment }}</textarea>
+            <textarea name="comment" id="commentText">{{ invitation.comment }}</textarea>
         </div>
 
     </div>

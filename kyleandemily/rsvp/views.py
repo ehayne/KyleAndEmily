@@ -105,7 +105,6 @@ def save(request):
 
     invitation.responded = True
     invitation.comment = request.POST.get('comment')
-    invitation.song = request.POST.get('song')
     invitation.save()
 
     plaintext = get_template('email.txt')

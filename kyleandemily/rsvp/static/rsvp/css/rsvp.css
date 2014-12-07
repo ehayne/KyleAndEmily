@@ -1,7 +1,15 @@
 .formInputs {
-    padding-bottom: 1%;
+    margin-top: 1%;
 }
 
 .text-left {
     margin-left: 3%;
+}
+
+#guestComment{
+    margin: 3%;
+}
+
+.firstName {
+    padding-left: 2%;
 }
