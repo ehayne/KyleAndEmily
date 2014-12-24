@@ -120,4 +120,9 @@ def save(request):
 #     msg.attach_alternative(html_content, "text/html")
 #     msg.send()
 
-    return render_to_response('thanks.html')
+    context = {
+        'invitation': person.invitation,
+    }
+    template = 'responded.html'
+
+    return render_to_response(template, context, RequestContext(request))

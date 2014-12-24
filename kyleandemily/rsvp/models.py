@@ -15,6 +15,8 @@ class Invitation(models.Model):
     '''
 Represents an invitation to the wedding
 '''
+# TODO: invitation name needs to be unique - i think the first name/last name combo also needs to be unique since it's the search key
+
     name = models.CharField(
         max_length=128,
         help_text='An informal name for this invitation'
@@ -23,6 +25,7 @@ Represents an invitation to the wedding
         max_length=2000,
         blank=True
     )
+    #TODO: remove song
     song = models.TextField(
         max_length=200,
         blank=True

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    // form validation/submission for rsvp lookup
     var $lookup_form = $("form#lookup"),
         $first_name = $("#firstname"),
         $last_name = $("#lastname"),
@@ -29,6 +31,7 @@ $(document).ready(function() {
         });
     });
 
+    // hide/show functionality for UI
     $(".editable").hide();
 
     $(".editButton").click(function(){
