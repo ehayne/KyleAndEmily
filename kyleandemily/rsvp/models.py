@@ -59,6 +59,7 @@ Represents a person coming to the wedding
         Invitation,
         related_name='people'
     )
+    #TODO: add validation that first and last name are required fields
     first_name = models.CharField(
         max_length=64,
         blank=True
