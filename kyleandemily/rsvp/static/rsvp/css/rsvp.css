@@ -20,6 +20,12 @@
     cursor: pointer;
 }
 
+#cancelPlusOne{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
 .editButtons {
     text-decoration: underline;
     color: blue;

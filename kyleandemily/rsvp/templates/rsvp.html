@@ -45,6 +45,9 @@
           <td class="rsvp">
               <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
+          {% else %}
+          <input type="hidden" name="person.{{ forloop.counter0 }}.attendingWelcome" value="0">
+          <input type="hidden" name="person.{{ forloop.counter0 }}.attendingFarewell" value="0">
           {% endif %}
         </tr>
     {% endfor %}
@@ -60,12 +63,12 @@
         {%  endif %}
         </tr>
         <tr class="formInputs" id="plusOneEdit">
-          <td></td>
+          <td id="cancelPlusOne">Cancel</td>
           <td>
-              <input type="text" name="plus_one_first_name" value="">
+              <input type="text" name="plus_one_first_name" placeholder="First Name" value="">
           </td>
           <td>
-              <input type="text" name="plus_one_last_name" value="">
+              <input type="text" name="plus_one_last_name" placeholder="Last Name" value="">
           </td>
           <td>
               <select class="attending" name="plus_one_attending"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
@@ -77,6 +80,9 @@
           <td class="rsvp">
               <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
+          {% else %}
+          <input type="hidden" name="person.{{ forloop.counter0 }}.attendingWelcome" value="0">
+          <input type="hidden" name="person.{{ forloop.counter0 }}.attendingFarewell" value="0">
           {% endif %}
         </tr>
     {% endif %}

@@ -50,8 +50,12 @@ $(document).ready(function() {
     $("#plusOneEdit").hide();
 
     $("#plusOne").click(function(){
-      var $occ = $(this).closest('tr').data('value');
       $('#plusOneEdit').show();
       $('#plusOne').hide();
+    });
+
+    $("#cancelPlusOne").click(function(){
+      $('#plusOneEdit').hide();
+      $('#plusOne').show();
     });
 });
