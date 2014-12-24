@@ -25,3 +25,11 @@
     color: blue;
     cursor: pointer;
 }
+
+.tableHead {
+    width: 6em;
+}
+
+.rsvp {
+    width: 5em;
+}

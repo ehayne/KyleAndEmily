@@ -8,15 +8,15 @@
     <table>
         <thead>
         <tr class="label">
-          <td></td>
-          <td>First Name</td>
-          <td>Last Name</td>
+          <td class="tableHead"></td>
+          <td class="tableHead">First Name</td>
+          <td class="tableHead">Last Name</td>
           {% if invitation.helloGoodbyeInvite %}
-            <td>Wedding</td>
-            <td>Welcome Dinner</td>
-            <td>Farewell Lunch</td>
+            <td class="tableHead">Wedding</td>
+            <td class="tableHead">Welcome Dinner</td>
+            <td class="tableHead">Farewell Lunch</td>
           {%  else %}
-            <td>Attending?</td>
+            <td class="tableHead">Attending?</td>
           {% endif %}
         </tr>
         </thead>
@@ -36,14 +36,14 @@
               <p class="viewName{{ forloop.counter0 }}">{{ person.last_name }}</p>
           </td>
           <td class="rsvp">
-              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWedding"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWedding"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           {%  if invitation.helloGoodbyeInvite %}
             <td class="rsvp">
-              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWelcome"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWelcome"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           <td class="rsvp">
-              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           {% endif %}
         </tr>
@@ -51,8 +51,8 @@
 
     {% if invitation.plusOne %}
         <tr class="formInputs" id="plusOne">
+            <td>Add</td>
             <td></td>
-            <td>Add Additional Guest</td>
             <td></td>
         {%  if invitation.helloGoodbyeInvite %}
             <td></td>
@@ -68,14 +68,14 @@
               <input type="text" name="plus_one_last_name" value="">
           </td>
           <td>
-              <select class="attending" name="plus_one_attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+              <select class="attending" name="plus_one_attending"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           {%  if invitation.helloGoodbyeInvite %}
           <td class="rsvp">
-              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWelcome"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWelcome"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           <td class="rsvp">
-              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           {% endif %}
         </tr>

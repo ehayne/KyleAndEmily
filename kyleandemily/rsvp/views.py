@@ -112,11 +112,12 @@ def save(request):
 
     d = Context({ 'invitation': person.invitation })
 
-    subject, from_email, to = '[RSVP] Wedding RSVP Received', 'onotreply8386@gmail.com', 'buschang.rockman.wedding@gmail.com'
-    text_content = plaintext.render(d)
-    html_content = htmly.render(d)
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-    msg.attach_alternative(html_content, "text/html")
-    msg.send()
+# TODO: re-enable email, currently disabled for working locally
+#     subject, from_email, to = '[RSVP] Wedding RSVP Received', 'donotreply8386@gmail.com', 'buschang.rockman.wedding@gmail.com'
+#     text_content = plaintext.render(d)
+#     html_content = htmly.render(d)
+#     msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+#     msg.attach_alternative(html_content, "text/html")
+#     msg.send()
 
     return render_to_response('thanks.html')
