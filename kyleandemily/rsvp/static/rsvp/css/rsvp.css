@@ -13,3 +13,15 @@
 .firstName {
     padding-left: 2%;
 }
+
+#plusOne{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.editButtons {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}

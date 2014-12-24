@@ -11,10 +11,12 @@
           <td></td>
           <td>First Name</td>
           <td>Last Name</td>
-          <td>Attending?</td>
           {% if invitation.helloGoodbyeInvite %}
-          <td>Attending Welcome Dinner</td>
-          <td>Attending Farewell Lunch</td>
+            <td>Wedding</td>
+            <td>Welcome Dinner</td>
+            <td>Farewell Lunch</td>
+          {%  else %}
+            <td>Attending?</td>
           {% endif %}
         </tr>
         </thead>
@@ -48,7 +50,16 @@
     {% endfor %}
 
     {% if invitation.plusOne %}
-        <tr class="formInputs">
+        <tr class="formInputs" id="plusOne">
+            <td></td>
+            <td>Add Additional Guest</td>
+            <td></td>
+        {%  if invitation.helloGoodbyeInvite %}
+            <td></td>
+            <td></td>
+        {%  endif %}
+        </tr>
+        <tr class="formInputs" id="plusOneEdit">
           <td></td>
           <td>
               <input type="text" name="plus_one_first_name" value="">
@@ -59,6 +70,14 @@
           <td>
               <select class="attending" name="plus_one_attending"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
           </td>
+          {%  if invitation.helloGoodbyeInvite %}
+          <td class="rsvp">
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWelcome"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+          </td>
+          <td class="rsvp">
+              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="-">&mdash;</option><option value="1">Yes</option><option value="0">No</option></select>
+          </td>
+          {% endif %}
         </tr>
     {% endif %}
     </tbody>

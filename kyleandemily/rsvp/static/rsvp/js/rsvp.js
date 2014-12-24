@@ -46,4 +46,12 @@ $(document).ready(function() {
       $("#editButton" + $occ).show();
       $("#completeEdit" + $occ).hide();
     });
+
+    $("#plusOneEdit").hide();
+
+    $("#plusOne").click(function(){
+      var $occ = $(this).closest('tr').data('value');
+      $('#plusOneEdit').show();
+      $('#plusOne').hide();
+    });
 });
