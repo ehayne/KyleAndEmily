@@ -19,15 +19,11 @@ Represents an invitation to the wedding
 
     name = models.CharField(
         max_length=128,
-        help_text='An informal name for this invitation'
+        help_text='An informal name for this invitation.',
+        unique=true
     )
     comment = models.TextField(
         max_length=2000,
-        blank=True
-    )
-    #TODO: remove song
-    song = models.TextField(
-        max_length=200,
         blank=True
     )
     helloGoodbyeInvite = models.BooleanField(
@@ -40,7 +36,7 @@ Represents an invitation to the wedding
     )
     responded = models.BooleanField(
         default=False,
-        help_text='Has this invitation been responded to'
+        help_text='Has this invitation been responded to?'
     )
     updated = models.DateTimeField(
         auto_now=True
@@ -59,7 +55,6 @@ Represents a person coming to the wedding
         Invitation,
         related_name='people'
     )
-    #TODO: add validation that first and last name are required fields
     first_name = models.CharField(
         max_length=64,
         blank=True
@@ -83,3 +78,13 @@ Represents a person coming to the wedding
     updated = models.DateTimeField(
         auto_now=True
     )
+
+    def clean(self):
+        # Don't allow first and last name to be blank
+        if self.first_name is None:
+            raise ValidationError('Please enter a first name.')
+        if self.last_name is None:
+            raise ValidationError('Please enter a first name.')
+
+    class Meta:
+        unique_together = ('first_name', 'last_name')

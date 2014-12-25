@@ -54,11 +54,15 @@ def landing(request):
 
 
 def lookup(request):
+    # TODO: strip leading/trailing spaces
     first_name = request.GET.get('first_name')
     last_name = request.GET.get('last_name')
 
     person = Person.objects.get(first_name__iexact=first_name,
                                 last_name__iexact=last_name)
+
+    # TODO: capture errors here? right now we're throwing an error when a name isn't found but we need to handle that since that is a real possibility.
+    #  what is iexact doing?
 
     context = {
         'invitation': person.invitation,
@@ -112,7 +116,7 @@ def save(request):
 
     d = Context({ 'invitation': person.invitation })
 
-# TODO: re-enable email, currently disabled for working locally
+# TODO: re-enable email, currently disabled for working locally - should probably add a switch for this?
 #     subject, from_email, to = '[RSVP] Wedding RSVP Received', 'donotreply8386@gmail.com', 'buschang.rockman.wedding@gmail.com'
 #     text_content = plaintext.render(d)
 #     html_content = htmly.render(d)
