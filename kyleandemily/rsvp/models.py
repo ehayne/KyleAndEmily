@@ -20,7 +20,7 @@ Represents an invitation to the wedding
     name = models.CharField(
         max_length=128,
         help_text='An informal name for this invitation.',
-        unique=true
+        unique=True
     )
     comment = models.TextField(
         max_length=2000,
