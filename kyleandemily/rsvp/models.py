@@ -2,20 +2,11 @@
 
 from django.db import models
 
-'''
-TODO: possible ideas for models
-add flag for +1 field for people whose date we don't know
-add text field on invitation for general comments
-remove dietary restriction
-
-'''
-
 
 class Invitation(models.Model):
     '''
 Represents an invitation to the wedding
 '''
-# TODO: invitation name needs to be unique - i think the first name/last name combo also needs to be unique since it's the search key
 
     name = models.CharField(
         max_length=128,
