@@ -54,12 +54,11 @@ def landing(request):
 
 
 def lookup(request):
-    # TODO: strip leading/trailing spaces
     first_name = request.GET.get('first_name')
     last_name = request.GET.get('last_name')
 
-    person = Person.objects.get(first_name__iexact=first_name,
-                                last_name__iexact=last_name)
+    person = Person.objects.get(first_name__iexact=first_name.strip(),
+                                last_name__iexact=last_name.strip())
 
     # TODO: capture errors here? right now we're throwing an error when a name isn't found but we need to handle that since that is a real possibility.
     #  what is iexact doing?
