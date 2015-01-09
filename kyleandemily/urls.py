@@ -15,8 +15,8 @@ urlpatterns = patterns(
     #        name='under_construction'),
     url(r'^', include('kyleandemily.wedding.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^wedding/', include('kyleandemily.wedding.urls')),
-    url(r'^photologue/', include('photologue.urls')),
+    url(r'^(?i)wedding/', include('kyleandemily.wedding.urls')),
+    url(r'^(?i)photologue/', include('photologue.urls')),
 )   
 
 if settings.DEBUG:
