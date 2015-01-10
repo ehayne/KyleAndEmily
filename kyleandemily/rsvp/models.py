@@ -54,9 +54,8 @@ Represents a person coming to the wedding
         max_length=128,
         blank=False
     )
-    plusOneSwitch = models.NullBooleanField(
-        blank=True,
-        null=False
+    plusOneSwitch = models.BooleanField(
+        default=False
     )
     attendingWedding = models.NullBooleanField(
         blank=True,

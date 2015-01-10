@@ -113,7 +113,7 @@ def save(request):
             plus_one_first_name = request.POST['plus_one_first_name']
             plus_one_last_name = request.POST['plus_one_last_name']
 
-            if not plus_one_first_name or not plus_one_last_name:    # TODO: this isn't isn't working!!!!
+            if not plus_one_first_name or not plus_one_last_name:
                 context = {
                 'invitation': invitation,
                 'error_msg': 'I''m sorry but there was an error.  Please confirm your response and try again.',
@@ -123,19 +123,20 @@ def save(request):
 
                 return render_to_response(template, context, RequestContext(request))
             plusOne = Person.objects.create(invitation=invitation,
-                                    attendingWedding= request.POST['plus_one_attending'],   #todo: add lookup for all values, dont default
-                                    attendingWelcome= request.POST['plusOneAttendingWelcome'],   #todo: add lookup for all values, dont default
-                                    attendingFarewell= request.POST['plusOneAttendingFarewell'],   #todo: add lookup for all values, dont default
-                                    first_name=plus_one_first_name,
-                                    last_name=plus_one_last_name
+                                            first_name=plus_one_first_name,
+                                            last_name=plus_one_last_name,
+                                            attendingWedding=request.POST['plus_one_attending'],
+                                            attendingWelcome=request.POST['plusOneAttendingWelcome'],
+                                            attendingFarewell=request.POST['plusOneAttendingFarewell'],
+                                            plusOneSwitch=True,
                                     )
 
-            plusOne.full_clean()   # TODO: we're not catching errors when only one name gets filled
+            plusOne.full_clean()
             plusOne.save()
 
     invitation.responded = True
     invitation.comment = request.POST.get('comment')
-    invitation.full_clean()  #TODO: add form validation to catch any errors.
+    invitation.full_clean()
     invitation.save()
 
     plaintext = get_template('email.txt')
