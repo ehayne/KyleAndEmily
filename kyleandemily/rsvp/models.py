@@ -54,6 +54,10 @@ Represents a person coming to the wedding
         max_length=128,
         blank=False
     )
+    plusOneSwitch = models.NullBooleanField(
+        blank=True,
+        null=False
+    )
     attendingWedding = models.NullBooleanField(
         blank=True,
         null=True
@@ -73,9 +77,9 @@ Represents a person coming to the wedding
     def clean(self):
         # Don't allow first or last name to be blank
         if self.first_name is None:
-            raise ValidationError('Please enter a first name.')
+            raise ValidationError('First name is required.')
         if self.last_name is None:
-            raise ValidationError('Please enter a first name.')
+            raise ValidationError('Last name is required.')
 
     class Meta:
-        unique_together = ('first_name', 'last_name')
+        unique_together = ('first_name', 'last_name','plusOneSwitch')
