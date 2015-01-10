@@ -106,14 +106,31 @@ def save(request):
         index += 1
 
     if invitation.plusOne:
-        additional_guest = request.POST['plus_one_attending']
-        if additional_guest == '1':
+        add_plus_one = request.POST['addPlusOne']
+
+        if add_plus_one == '1':
+
+            plus_one_first_name = request.POST['plus_one_first_name']
+            plus_one_last_name = request.POST['plus_one_last_name']
+
+            if not plus_one_first_name or not plus_one_last_name:    # TODO: this isn't isn't working!!!!
+                context = {
+                'invitation': invitation,
+                'error_msg': 'I''m sorry but there was an error.  Please confirm your response and try again.',
+                }
+
+                template = 'rsvp.html'
+
+                return render_to_response(template, context, RequestContext(request))
             plusOne = Person.objects.create(invitation=invitation,
-                                    attendingWedding= True,
-                                    first_name=request.POST['plus_one_first_name'],
-                                    last_name=request.POST['plus_one_last_name']
+                                    attendingWedding= request.POST['plus_one_attending'],   #todo: add lookup for all values, dont default
+                                    attendingWelcome= request.POST['plusOneAttendingWelcome'],   #todo: add lookup for all values, dont default
+                                    attendingFarewell= request.POST['plusOneAttendingFarewell'],   #todo: add lookup for all values, dont default
+                                    first_name=plus_one_first_name,
+                                    last_name=plus_one_last_name
                                     )
-            plusOne.full_clean()
+
+            plusOne.full_clean()   # TODO: we're not catching errors when only one name gets filled
             plusOne.save()
 
     invitation.responded = True

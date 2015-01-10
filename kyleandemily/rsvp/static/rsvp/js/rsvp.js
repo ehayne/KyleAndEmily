@@ -55,11 +55,13 @@ $(document).ready(function() {
     $("#plusOne").click(function(){
       $('#plusOneEdit').show();
       $('#plusOne').hide();
+      $('#addPlusOne').val("1");
     });
 
     $("#cancelPlusOne").click(function(){
       $('#plusOneEdit').hide();
       $('#plusOne').show();
+      $('#addPlusOne').val("0");
     });
 
     $(".formInputs").focusout(function(){
@@ -67,11 +69,26 @@ $(document).ready(function() {
 
       var $first = $("#first" + $occ);
           $last = $("#last" + $occ);
+
       if ($first.val() == '' || $last.val() == '')
         {
             var $error = $('<p>This field cannot be blank.</p>');
             if ($('div#error_msg' + $occ).is(':empty')) {
                 $($error).appendTo('#error_msg' + $occ);
+            }
+        }
+    });
+
+    $("#plusOneEdit").focusout(function(){
+
+      var $plusFirst = $("#plusOneFirst"),
+          $plusLast = $("#plusOneLast");
+
+      if ($plusFirst.val() == '' || $plusLast.val() == '')
+        {
+            var $error = $('<p>Please enter both first and last name to add another guest.</p>');
+            if ($('div#plus_one_error_msg').is(':empty')) {
+                $($error).appendTo('#plus_one_error_msg');
             }
         }
     });

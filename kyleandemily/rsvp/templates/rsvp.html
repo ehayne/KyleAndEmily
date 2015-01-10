@@ -56,6 +56,7 @@
 
     {% if invitation.plusOne %}
         <tr class="formInputs" id="plusOne">
+            <input type="hidden" id="addPlusOne" name="addPlusOne" value="0">
             <td>Add</td>
             <td></td>
             <td></td>
@@ -67,25 +68,26 @@
         <tr class="formInputs" id="plusOneEdit">
           <td id="cancelPlusOne">Cancel</td>
           <td>
-              <input type="text" class="plusOneName" name="plus_one_first_name" placeholder="First Name" value="">
+              <input type="text" class="plusOneName" id="plusOneFirst" name="plus_one_first_name" placeholder="First Name" value="">
           </td>
           <td>
-              <input type="text" class="plusOneName" name="plus_one_last_name" placeholder="Last Name" value="">
+              <input type="text" class="plusOneName" id="plusOneLast" name="plus_one_last_name" placeholder="Last Name" value="">
           </td>
           <td>
               <select class="attending" name="plus_one_attending"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           {%  if invitation.helloGoodbyeInvite %}
           <td class="rsvp">
-              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWelcome"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
+              <select class="attendingWedding" name="plusOneAttendingWelcome"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           <td class="rsvp">
-              <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingFarewell"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
+              <select class="attendingWedding" name="plusOneAttendingFarewell"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
           </td>
           {% else %}
-          <input type="hidden" name="person.{{ forloop.counter0 }}.attendingWelcome" value="0">
-          <input type="hidden" name="person.{{ forloop.counter0 }}.attendingFarewell" value="0">
+          <input type="hidden" name="plusOneAttendingWelcome" value="0">
+          <input type="hidden" name="plusOneAttendingFarewell" value="0">
           {% endif %}
+          <td><div id="plus_one_error_msg"></div></td>
         </tr>
     {% endif %}
     </tbody>
