@@ -48,11 +48,11 @@ Represents a person coming to the wedding
     )
     first_name = models.CharField(
         max_length=64,
-        blank=True
+        blank=False
     )
     last_name = models.CharField(
         max_length=128,
-        blank=True
+        blank=False
     )
     attendingWedding = models.NullBooleanField(
         blank=True,
@@ -71,7 +71,7 @@ Represents a person coming to the wedding
     )
 
     def clean(self):
-        # Don't allow first and last name to be blank
+        # Don't allow first or last name to be blank
         if self.first_name is None:
             raise ValidationError('Please enter a first name.')
         if self.last_name is None:

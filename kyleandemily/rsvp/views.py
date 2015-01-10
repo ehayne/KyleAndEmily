@@ -60,9 +60,6 @@ def lookup(request):
     person = Person.objects.get(first_name__iexact=first_name.strip(),
                                 last_name__iexact=last_name.strip())
 
-    # TODO: capture errors here? right now we're throwing an error when a name isn't found but we need to handle that since that is a real possibility.
-    #  what is iexact doing?
-
     context = {
         'invitation': person.invitation,
     }
@@ -93,6 +90,18 @@ def save(request):
         person.attendingFarewell = True if p_attr('attendingFarewell') == '1' else False
         person.first_name = p_attr('first_name')
         person.last_name = p_attr('last_name')
+
+        if not person.first_name or not person.last_name:
+            context = {
+            'invitation': invitation,
+            'error_msg': 'I''m sorry but there was an error.  Please confirm your response and try again.',
+            }
+
+            template = 'rsvp.html'
+
+            return render_to_response(template, context, RequestContext(request))
+
+        person.full_clean()
         person.save()
         index += 1
 
@@ -104,11 +113,12 @@ def save(request):
                                     first_name=request.POST['plus_one_first_name'],
                                     last_name=request.POST['plus_one_last_name']
                                     )
+            plusOne.full_clean()
             plusOne.save()
 
     invitation.responded = True
     invitation.comment = request.POST.get('comment')
-    # invitation.clean()  TODO: add form validation to catch any errors.
+    invitation.full_clean()  #TODO: add form validation to catch any errors.
     invitation.save()
 
     plaintext = get_template('email.txt')

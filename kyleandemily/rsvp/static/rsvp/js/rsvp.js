@@ -61,4 +61,18 @@ $(document).ready(function() {
       $('#plusOneEdit').hide();
       $('#plusOne').show();
     });
+
+    $(".formInputs").focusout(function(){
+      var $occ = $(this).closest('tr').data('value');
+
+      var $first = $("#first" + $occ);
+          $last = $("#last" + $occ);
+      if ($first.val() == '' || $last.val() == '')
+        {
+            var $error = $('<p>This field cannot be blank.</p>');
+            if ($('div#error_msg' + $occ).is(':empty')) {
+                $($error).appendTo('#error_msg' + $occ);
+            }
+        }
+    });
 });
