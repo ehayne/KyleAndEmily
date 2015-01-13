@@ -63,6 +63,15 @@ def gallery(request):
     return HttpResponse(template.render(context))
 
 
+def instagram(request):
+
+    template = loader.get_template('instagram.html')
+    context = RequestContext(request, {
+        'object_list': None,
+    })
+    return HttpResponse(template.render(context))
+
+
 def details(request):
     template = loader.get_template('details.html')
     context = RequestContext(request, {
