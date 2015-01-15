@@ -6,7 +6,11 @@ from django.template import RequestContext, loader
 from photologue.models import Gallery
 from pytz import timezone
 
-WEDDING_DATE = datetime(2015, 04, 10, 14, 0, tzinfo=timezone('US/Central'))
+from kyleandemily.defaults import (ABOUT_TEXT,
+                                  DETAILS_TEXT,
+                                  HOTEL_TEXT,
+                                  WEDDING_DATE,
+                                  ENGAGEMENT_DATE)
 
 def home(request):
 
@@ -36,7 +40,10 @@ def about(request):
     template = loader.get_template('about.html')
     context = RequestContext(request,
     {
-        'days_left': 'x',
+        'about_groom': ABOUT_TEXT['about_groom'],
+        'about_bride': ABOUT_TEXT['about_bride'],
+        'engagement_story': ABOUT_TEXT['engagement_story'],
+        'engagement_date': ENGAGEMENT_DATE,
     })
     return HttpResponse(template.render(context))
 
@@ -55,14 +62,18 @@ def gallery(request):
 def details(request):
     template = loader.get_template('details.html')
     context = RequestContext(request, {
-        'latest_question_list': 'x',
+        'ceremony': DETAILS_TEXT['ceremony'],
+        'reception': DETAILS_TEXT['reception'],
+        'dress_code': DETAILS_TEXT['dress_code'],
+        'directions_text': DETAILS_TEXT['driving_directions_text'],
+        'map_url': DETAILS_TEXT['map_url'],
     })
     return HttpResponse(template.render(context))
 
 def hotels(request):
     template = loader.get_template('hotels.html')
     context = RequestContext(request, {
-        'latest_question_list': 'x',
+        'accomodations_text': HOTEL_TEXT['accomodations_text'],
     })
     return HttpResponse(template.render(context))
 

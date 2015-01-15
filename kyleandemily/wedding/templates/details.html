@@ -5,30 +5,30 @@
   <div id="ceremony" class="personSection">
     <h3>Ceremony</h3>
     <p class="personDescription">
-        Our ceremony will be outdoors at the Winfield Inn.  Please check back soon for the exact time we're getting hitched!
+        {{ ceremony | safe }}
     </p>
   </div>
   
   <div id="reception" class="personSection">
     <h3>Reception</h3>
     <p class="personDescription">
-        Reception will follow at the Winfield Inn.
+        {{ reception | safe }}
     </p>
   </div>
 
   <div id="dressCode" class="personSection">
     <h3>Dress Code</h3>
     <p class="personDescription">
-        Dressy Casual
+        {{ dress_code | safe }}
     </p>
   </div>
 
   <div id="directions" class="personSection">
     <h3>Driving directions</h3>
     <p class="personDescription">
-        We invite you to join us at the Winfield Inn in Kyle, Texas.  It's about 20 miles south of downtown Austin.
+        {{ directions_text | safe }}
     </p>
-    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=The%20Winfield%20Inn%2C%20Scott%20Street%2C%20Kyle%2C%20TX%2C%20United%20States&key=AIzaSyD51KGRYE17Jnmouarr0-VubPV8Q_KXUpY"></iframe>
+    <iframe width="600" height="450" frameborder="0" style="border:0" src="{{ map_url }}"></iframe>
   </div>
 
 {% endblock %}
