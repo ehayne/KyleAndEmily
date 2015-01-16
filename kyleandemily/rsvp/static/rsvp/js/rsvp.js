@@ -98,4 +98,9 @@ $(document).ready(function() {
           $('#plus_one_error_msg').empty();
       }
     });
+
+    var $people_form = $("form#people")
+    $people_form.submit(function (event) {
+        $(".viewOnly").prop('disabled', false);
+    });
 });
