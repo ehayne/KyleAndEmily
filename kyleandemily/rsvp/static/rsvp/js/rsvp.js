@@ -32,20 +32,20 @@ $(document).ready(function() {
     });
 
     // hide/show functionality for UI
-    $(".editable").hide();
+    $(".completeEditButton").hide();
 
     $(".editButton").click(function(){
       var $occ = $(this).closest('tr').data('value');
-      $('.editName' + $occ).show();
-      $(".viewName" + $occ).hide();
+      $(".editName" + $occ).toggleClass("viewOnly");
+      $('#el').prop('disabled', function(i, v) { return !v; });
       $("#editButton" + $occ).hide();
       $("#completeEdit" + $occ).show();
     });
 
     $(".completeEditButton").click(function(){
       var $occ = $(this).closest('tr').data('value');
-      $(".editName" + $occ).hide();
-      $(".viewName" + $occ).show();
+      $(".editName" + $occ).toggleClass("viewOnly");
+      $(".editName" + $occ).prop('disabled', function(i, v) { return !v; });
       $("#editButton" + $occ).show();
       $("#completeEdit" + $occ).hide();
     });
@@ -72,14 +72,17 @@ $(document).ready(function() {
 
       if ($first.val() == '' || $last.val() == '')
         {
-            var $error = $('<p>This field cannot be blank.</p>');
+            var $error = $('<p id="">This field cannot be blank.</p>');
             if ($('div#error_msg' + $occ).is(':empty')) {
                 $($error).appendTo('#error_msg' + $occ);
             }
         }
+      else  {
+          $('div#error_msg' + $occ).empty();
+      }
     });
 
-    $("#plusOneEdit").focusout(function(){
+    $("#plusOneLast").focusout(function(){
 
       var $plusFirst = $("#plusOneFirst"),
           $plusLast = $("#plusOneLast");
@@ -91,5 +94,8 @@ $(document).ready(function() {
                 $($error).appendTo('#plus_one_error_msg');
             }
         }
+      else  {
+          $('#plus_one_error_msg').empty();
+      }
     });
 });
