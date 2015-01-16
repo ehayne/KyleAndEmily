@@ -663,7 +663,7 @@
         "fields": {
             "first_name": "Philip", 
             "invitation": 19, 
-            "last_name": "DiSalvo", 
+            "last_name": "DiSalvo Jr.", 
             "updated": "2015-01-09T23:51:37.745Z"
         }, 
         "model": "rsvp.person", 
@@ -1978,37 +1978,7 @@
         }, 
         "model": "rsvp.invitation", 
         "pk": 59
-    }, 
-    {
-        "fields": {
-            "first_name": "David", 
-            "invitation": 60, 
-            "last_name": "McLain", 
-            "updated": "2015-01-09T23:51:37.745Z"
-        }, 
-        "model": "rsvp.person", 
-        "pk": 140
-    }, 
-    {
-        "fields": {
-            "first_name": "Ingrid", 
-            "invitation": 60, 
-            "last_name": "McLain", 
-            "updated": "2015-01-09T23:51:37.745Z"
-        }, 
-        "model": "rsvp.person", 
-        "pk": 141
-    }, 
-    {
-        "fields": {
-            "helloGoodbyeInvite": false, 
-            "name": "Mr. and Mrs. McLain", 
-            "plusOne": false, 
-            "updated": "2015-01-09T23:51:37.745Z"
-        }, 
-        "model": "rsvp.invitation", 
-        "pk": 60
-    }, 
+    },
     {
         "fields": {
             "first_name": "Lori", 
