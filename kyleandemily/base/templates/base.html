@@ -13,8 +13,12 @@
         <link rel="stylesheet" href="{% static s %}">
         {% endfor %}
 
-        {% for J in js_file %}
-        <script type="text/javascript" src="{% static J %}"></script>
+        {% for m in extra_css_file %}
+        <link rel="stylesheet" href="{% static m %}" type="text/css" media="screen" >
+        {% endfor %}
+
+        {% for j in js_file %}
+        <script type="text/javascript" src="{% static j %}"></script>
         {% endfor %}
 
         <!-- Add mousewheel plugin (this is optional) -->

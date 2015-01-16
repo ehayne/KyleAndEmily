@@ -74,6 +74,7 @@ def details(request):
     })
     return HttpResponse(template.render(context))
 
+
 def hotels(request):
     template = loader.get_template('hotels.html')
     context = RequestContext(request, {
@@ -81,12 +82,14 @@ def hotels(request):
     })
     return HttpResponse(template.render(context))
 
+
 def rsvp(request):
     template = loader.get_template('rsvp.html')
     context = RequestContext(request, {
-        'latest_question_list': 'x',
+        'extra_css_file': ['rsvp/css/rsvp.css', ],
     })
     return HttpResponse(template.render(context))
+
 
 def registry(request):
     template = loader.get_template('registry.html')

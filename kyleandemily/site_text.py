@@ -35,11 +35,11 @@ DETAILS_TEXT = {
 }
 
 HOTEL_TEXT = {
-    'accomodations_text': '<p>We will be sharing our wedding weekend with many exciting events in Austin.' +
+    'accomodations_text': '<p>We will be sharing our wedding weekend with many exciting events in Austin.  ' +
                           'Unfortunately, this means that we are unable to reserve a block at any of the hotels in town.' +
                           '</p>' +
                           '<p>' +
-                          'We suggest taking advantage of the usual travel sites (expedia.com, hotels.com, etc) as well' +
+                          'We suggest taking advantage of the usual travel sites (expedia.com, hotels.com, etc) as well ' +
                           'as trying out <a href="https://www.airbnb.com/">airbnb</a> and <a href="http://www.homeaway.com/">HomeAway</a>.' +
                           '</p>',
     'hotel_list': '',
