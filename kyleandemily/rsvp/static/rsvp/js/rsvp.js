@@ -37,7 +37,7 @@ $(document).ready(function() {
     $(".editButton").click(function(){
       var $occ = $(this).closest('tr').data('value');
       $(".editName" + $occ).toggleClass("viewOnly");
-      $('#el').prop('disabled', function(i, v) { return !v; });
+      $(".editName" + $occ).prop('disabled', function(i, v) { return !v; });
       $("#editButton" + $occ).hide();
       $("#completeEdit" + $occ).show();
     });
