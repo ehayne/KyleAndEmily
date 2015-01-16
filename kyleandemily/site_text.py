@@ -1,16 +1,10 @@
-from kyleandemily import settings
+
 from datetime import datetime
 from pytz import timezone
 
 WEDDING_DATE = datetime(2015, 04, 10, 14, 0, tzinfo=timezone('US/Central'))
 ENGAGEMENT_DATE = 'Sunday, May 11, 2014'
 
-WEDDING_DEFAULTS = {
-    'css_file': [settings.STATIC_URL + 'css/base.css'],
-    'js_file': [settings.STATIC_URL + 'js/main.js'],
-    'page_title': 'Kyle &amp; Emily',
-    'window_title': 'Kyle Rockman and Emily Buschang''s Wedding Site',  #use full names for search engine optimization
-}
 
 ABOUT_TEXT = {
     'about_groom': 'Kyle grew up in Wisconsin until he was 19 years of age.  He then moved to San Francisco, California to ' +

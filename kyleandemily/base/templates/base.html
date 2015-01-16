@@ -4,15 +4,18 @@
     
     <head>
         <meta charset="UTF-8">
-        <title>Kyle Rockman and Emily Buschang's Wedding Site</title>
+        <title>{{ window_title }}</title>
         <link href="http://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css' />
         <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css' />
-                
-        <link rel="stylesheet" href="{% static 'base/css/main.css' %}">
-        <link rel="stylesheet" href="{% static 'base/css/normalize.css' %}">
-        <link rel="stylesheet" href="{% static 'wedding/css/wedding.css' %}">
-        <script type="text/javascript" src="{% static 'base/js/vendor/jquery-1.11.0.min.js' %}"></script>
+
+        {% for s in css_file %}
+        <link rel="stylesheet" href="{% static s %}">
+        {% endfor %}
+
+        {% for J in js_file %}
+        <script type="text/javascript" src="{% static J %}"></script>
+        {% endfor %}
 
         <!-- Add mousewheel plugin (this is optional) -->
         <script type="text/javascript" src="{% static 'base/js/fancybox/fancylib/jquery.mousewheel-3.0.6.pack.js' %}"></script>
@@ -29,7 +32,7 @@
         <link rel="stylesheet" href="{% static 'base/js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7' %}" type="text/css" media="screen" />
         <script type="text/javascript" src="{% static 'base/js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7' %}"></script>
 
-        <script type="text/javascript" src="{% static 'base/js/main.js' %}"></script>
+        <script type="text/javascript" src="{% static 'base/js/main.js' %}"></script>  # this is really just fancybox
 
         <!-- RSVP app static files -->
         <script type="text/javascript" src="{% static 'rsvp/js/rsvp.js' %}"></script>
