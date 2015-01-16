@@ -37,11 +37,6 @@ ln -snf "$APP_DIR" "$ACTIVE_APP_DIR"
 ln -snf "$VENV_DIR" "$ACTIVE_VENV_DIR"
 
 cd "$ACTIVE_APP_DIR"
-python manage.py syncdb --noinput
-python manage.py syncdb --noinput --database="wedding_photo_db" > /dev/null 2>&1
-python manage.py syncdb --noinput --database="rsvp_db" > /dev/null 2>&1
-python manage.py migrate photologue --noinput --database="wedding_photo_db"
-python manage.py migrate rsvp --noinput --database="rsvp_db"
 
 cp -f "$WORKSPACE/jenkins/nginx.conf" "/etc/nginx/sites-enabled/$PROJECT_NAME.conf"
 cp -f "$WORKSPACE/jenkins/uwsgi_$APP_ENV.ini" "/usr/local/uwsgi/confs/${PROJECT_NAME}_$APP_ENV.ini"
