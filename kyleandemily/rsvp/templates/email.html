@@ -5,17 +5,21 @@
   <table>
       <thead>
       <tr>
-        <td>Attending?</td>
         <td>First Name</td>
         <td>Last Name</td>
+        <td>Attending Wedding?</td>
+        <td>Attending Welcome Dinner?</td>
+        <td>Attending Farewell Lunch?</td>
       </tr>
     </thead>
     <tbody>
     {% for person in invitation.people.all %}
         <tr>
-          <td>{{ person.attendingWedding }}</td>
           <td>{{ person.first_name }}</td>
           <td>{{ person.last_name }}</td>
+          <td>{{ person.attendingWedding }}</td>
+          <td>{{ person.attendingWelcome }}</td>
+          <td>{{ person.attendingFarewell }}</td>
         </tr>
     {% endfor %}
     </tbody>

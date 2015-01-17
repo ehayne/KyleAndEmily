@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 import os
 APP_ENV = os.environ.get('APP_ENV', 'local')
@@ -48,14 +50,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'default.db'),
     },
-    #'wamp_db': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(DB_ROOT, 'wamp.db'),
-    #},
-    'wedding_photo_db': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_ROOT, 'wedding_photo.db'),
-    },
     'rsvp_db': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(DB_ROOT, 'rsvp.db'),
@@ -63,9 +57,7 @@ DATABASES = {
 }
 
 DATABASE_ROUTERS = [
-    'kyleandemily.wedding.db_router.PhotologueRouter',
     'kyleandemily.rsvp.db_router.RSVPRouter',
-    #'wamp.db_router.WampRouter',
 ]
 
 
@@ -100,6 +92,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = TEMPLATE_CONTEXT_PROCESSORS + (
+    'kyleandemily.processor.wedding_default',
 )
 
 ROOT_URLCONF = 'kyleandemily.urls'

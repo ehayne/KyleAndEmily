@@ -96,7 +96,6 @@ def save(request):
             'invitation': invitation,
             'error_msg': 'I''m sorry but there was an error.  Please confirm your response and try again.',
             }
-
             template = 'rsvp.html'
 
             return render_to_response(template, context, RequestContext(request))

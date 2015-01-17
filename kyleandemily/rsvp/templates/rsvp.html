@@ -29,10 +29,10 @@
             <p class="completeEditButton buttons" id="completeEdit{{ forloop.counter0 }}">Done</p>
           </td>
           <td class="firstName" id="firstName{{ forloop.counter0 }}">
-              <input class="editName{{ forloop.counter0 }} viewOnly" id="first{{ forloop.counter0 }}" type="text" name="person.{{ forloop.counter0 }}.first_name" value="{{ person.first_name }}">
+              <input class="editName{{ forloop.counter0 }} viewOnly" id="first{{ forloop.counter0 }}" type="text" name="person.{{ forloop.counter0 }}.first_name" value="{{ person.first_name }}" disabled>
           </td>
           <td class="lastName" id="lastName{{ forloop.counter0 }}">
-              <input class="editName{{ forloop.counter0 }} viewOnly" id = "last{{ forloop.counter0 }}" type="text" name="person.{{ forloop.counter0 }}.last_name" value="{{ person.last_name }}">
+              <input class="editName{{ forloop.counter0 }} viewOnly" id = "last{{ forloop.counter0 }}" type="text" name="person.{{ forloop.counter0 }}.last_name" value="{{ person.last_name }}" disabled>
           </td>
           <td class="rsvp">
               <select class="attendingWedding" name="person.{{ forloop.counter0 }}.attendingWedding"><option selected="selected" value="0">No</option><option value="1">Yes</option></select>
@@ -65,10 +65,10 @@
         </tr>
         <tr class="formInputs" id="plusOneEdit">
           <td id="cancelPlusOne">Cancel</td>
-          <td>
+          <td class="firstName">
               <input type="text" class="plusOneName" id="plusOneFirst" name="plus_one_first_name" placeholder="First Name" value="">
           </td>
-          <td>
+          <td class="lastName">
               <input type="text" class="plusOneName" id="plusOneLast" name="plus_one_last_name" placeholder="Last Name" value="">
           </td>
           <td>

@@ -5,10 +5,10 @@
 <div id="wrap">
   <div id="imageHeader">
   <span id="textHeader">
-    <h1 id="">Kyle &amp; Emily</h1>
+    <h1>{{ page_title }}</h1>
     
     <div id="theDate">
-      <div>April 10th, 2015</div>
+      <div>{{ WEDDING_DATE_TEXT }}</div>
     </div>
   </span>
   </div>
@@ -18,7 +18,7 @@
       {% block wedding-content %}{% endblock %}
     {% include 'wedding_footer.html' %}
     </div>
-    <div id="outsideFooter" class="center">Kyle and Emily built this website together from scratch.<div>
+    <div id="outsideFooter" class="center">{{ footer_text }}</div>
 </div>
 {% endblock %}
 
