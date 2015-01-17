@@ -1,15 +1,11 @@
 {% extends "wedding_base.html" %}
-{% load static %}
-
-
 
 {% block title %}Instagram Feed of the Wedding{% endblock %}
 
 {% block wedding-content %}
 
-<button id="load-more">Load</button>
 <span id="instafeed-photo" class="gallery-photo"></span>
-
+<button id="load-more">Load More!</button>
 
 <script type="text/javascript">
     var loadButton = document.getElementById('load-more');
@@ -17,16 +13,17 @@
         get: 'tagged',
         target: 'instafeed-photo',
         tagName: 'love',
+{#        tagName: 'mrandmrsrockman'#}
         limit: '50',
         clientId: '3b00205f28d94424bf5d2f9fbba46df7',
 
     {% verbatim %}
-        template: '<a rel="group" class="fancybox" href="{{model.images.standard_resolution.url}}" target="_blank"><img class="fancybox" src="{{image}}" /></a>',
+        template: '<a rel="group" class="fancybox" title="{{caption}}" href="{{model.images.standard_resolution.url}}" target="_blank"><img class="fancybox" src="{{image}}" /></a>',
     {%  endverbatim %}
 
 
         after: function() {
-            var images = $("#instafeed a").fancybox();
+            var images = $("#instafeed-photo a").fancybox();
             $.each(images, function(index, image) {
                 var delay = (index * 75) + 'ms';
                 $(image).css('-webkit-animation-delay', delay);
