@@ -40,6 +40,6 @@
     width: 5em;
 }
 
-/*.plusOneName {*/
-    /*width: 80%;*/
-/*}*/
+.bulletless {
+    list-style-type: none;
+}
