@@ -34,21 +34,13 @@ if APP_ENV != "prod":
     DEBUG = True
     TEMPLATE_DEBUG = True
 
-# The backend used to store task results - because we're going to be
-# using RabbitMQ as a broker, this sends results back as AMQP messages
-# CELERY_RESULT_BACKEND = "amqp"
-# CELERY_IMPORTS = ("tasks", )
-# CELERY_ALWAYS_EAGER = True
-# BROKER_URL = 'amqp://guest:guest@localhost:5672//'
-# CELERY_RESULT_BACKEND = 'amqp://guest:guest@localhost:5672//'
-# CELERY_TASK_SERIALIZER = 'json'
-
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'donotreply8386@gmail.com'
 EMAIL_HOST_PASSWORD = 'password8386'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'donotreply8386@gmail.com'
+DEFAULT_TO_EMAIL = 'buschang.rockman.wedding@gmail.com'
 
 ALLOWED_HOSTS = ['www.kyleandemily.com',
                  'kyleandemily.com',

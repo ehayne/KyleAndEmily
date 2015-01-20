@@ -8,32 +8,15 @@ from kyleandemily import settings
 
 
 @shared_task
-def send_rsvp_email(response):
-
-    plaintext = get_template('email.txt')
-    htmly = get_template('email.html')
-
-    d = Context({ 'invitation': response })
-
-    subject, from_email, to = ('[RSVP] Wedding RSVP Received',
-                               'donotreply8386@gmail.com',
-                               'buschang.rockman.wedding@gmail.com')
-    text_content = plaintext.render(d)
-    html_content = htmly.render(d)
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-    msg.attach_alternative(html_content, "text/html")
-    msg.send()
-
-@shared_task
-def send_email(email, context={}, subject_template='', body_text_template='',
-    body_html_template='', from_email=settings.DEFAULT_FROM_EMAIL):
+def send_email(context={}, subject_text='', body_text_template='',
+    body_html_template='', from_email=settings.DEFAULT_FROM_EMAIL, to_email=settings.DEFAULT_TO_EMAIL):
 
     # render content
-    subject = render_to_string([subject_template], context).replace('\n', ' ')
-    body_text = render_to_string([body_text_template], context)
-    body_html = render_to_string([body_html_template], context)
+    d = Context(context)
+    body_text = get_template(body_text_template).render(d)
+    body_html = get_template(body_html_template).render(d)
 
     # send email
-    email = EmailMultiAlternatives(subject, body_text, from_email, [email])
-    email.attach_alternative(body_html, 'text/html')
+    email = EmailMultiAlternatives(subject_text, body_text, from_email, [to_email])
+    email.attach_alternative(body_html, "text/html")
     email.send()

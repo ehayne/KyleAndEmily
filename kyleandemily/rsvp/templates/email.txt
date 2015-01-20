@@ -1,10 +1,13 @@
 {{ invitation.name }} has responded!
 
 
-Attending?  First Name  Last Name
+
 {% for person in invitation.people.all %}
-{{ person.attendingWedding }}  {{ person.first_name }}  {{ person.last_name }}
+Name: {{ person.first_name }}  {{ person.last_name }}
+Attending Wedding:{{ person.attendingWedding }}
+Attending Welcome Lunch:{{ person.attendingWelcome }}
+Attending Farewell Lunch:{{ person.attendingFarewell }}
 {% endfor %}
 
 
-<p> Comment: {{ invitation.comment }}</p>
+Comment: {{ invitation.comment }}
