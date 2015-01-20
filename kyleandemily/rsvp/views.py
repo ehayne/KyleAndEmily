@@ -1,10 +1,12 @@
-from django.http import HttpResponse
-from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404, render_to_response, HttpResponseRedirect
+# from django.http import HttpResponse
+# from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404, render_to_response #, HttpResponseRedirect
 from django.template import RequestContext
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import get_template
-from django.template import Context
+# from django.core.mail import EmailMultiAlternatives
+# from django.template.loader import get_template
+# from django.template import Context
+
+from kyleandemily.rsvp.tasks import send_rsvp_email
 
 from .models import Person, Invitation
 
@@ -137,18 +139,25 @@ def save(request):
     invitation.comment = request.POST.get('comment')
     invitation.full_clean()
     invitation.save()
+    print('before email')
+    send_rsvp_email.delay(response=person.invitation)
+    print('after email')
+    # context = Context({ 'invitation': person.invitation })
+    # subject = '[RSVP] Wedding RSVP Received'
+    # body_text_template = get_template('email.txt')
+    # body_html_template = get_template('email.html')
 
-    plaintext = get_template('email.txt')
-    htmly = get_template('email.html')
-
-    d = Context({ 'invitation': person.invitation })
-
-    subject, from_email, to = '[RSVP] Wedding RSVP Received', 'donotreply8386@gmail.com', 'buschang.rockman.wedding@gmail.com'
-    text_content = plaintext.render(d)
-    html_content = htmly.render(d)
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-    msg.attach_alternative(html_content, "text/html")
-    msg.send()
+    # plaintext = get_template('email.txt')
+    # htmly = get_template('email.html')
+    #
+    # d = Context({ 'invitation': person.invitation })
+    #
+    # subject, from_email, to = '[RSVP] Wedding RSVP Received', 'donotreply8386@gmail.com', 'buschang.rockman.wedding@gmail.com'
+    # text_content = plaintext.render(d)
+    # html_content = htmly.render(d)
+    # msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+    # msg.attach_alternative(html_content, "text/html")
+    # msg.send()
 
     context = {
         'invitation': person.invitation,
