@@ -9,7 +9,7 @@ from kyleandemily import settings
 
 @shared_task
 def send_rsvp_email(response):
-    print('in email')
+
     plaintext = get_template('email.txt')
     htmly = get_template('email.html')
 

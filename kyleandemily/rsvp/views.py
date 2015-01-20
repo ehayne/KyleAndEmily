@@ -139,9 +139,9 @@ def save(request):
     invitation.comment = request.POST.get('comment')
     invitation.full_clean()
     invitation.save()
-    print('before email')
+
     send_rsvp_email.delay(response=person.invitation)
-    print('after email')
+
     # context = Context({ 'invitation': person.invitation })
     # subject = '[RSVP] Wedding RSVP Received'
     # body_text_template = get_template('email.txt')
