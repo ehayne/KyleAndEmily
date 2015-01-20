@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 from celery import shared_task
 from django.core.mail import EmailMultiAlternatives
-from django.template.loader import get_template, render_to_string
+from django.template.loader import get_template
 from django.template import Context
 from kyleandemily import settings
 

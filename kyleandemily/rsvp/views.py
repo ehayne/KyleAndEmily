@@ -1,10 +1,5 @@
-# from django.http import HttpResponse
-# from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404, render_to_response #, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
-# from django.core.mail import EmailMultiAlternatives
-from django.template.loader import get_template
-# from django.template import Context
 from kyleandemily import settings
 
 from kyleandemily.rsvp.tasks import send_email
