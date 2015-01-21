@@ -17,8 +17,12 @@ if envdir_path and os.path.isdir(envdir_path):
     envdir.open(envdir_path)
 
 APP_ENV = os.environ.get('APP_ENV', 'local')
-PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
-DB_ROOT = os.path.join(PROJECT_DIR, 'db')
+PROJECT_ROOT = os.environ.get('PROJECT_ROOT', None)
+if PROJECT_ROOT is None:
+    PROJECT_ROOT = PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
+else:
+    PROJECT_DIR = os.path.join(PROJECT_ROOT, 'app')
+DB_ROOT = os.path.join(PROJECT_ROOT, 'db')
 GOOGLE_SITE_VERIFICATION = os.environ.get('GOOGLE_SITE_VERIFICATION', '')
 
 SECRET_KEY = os.environ.get('SECRET_KEY', APP_ENV)
@@ -111,7 +115,7 @@ USE_TZ = True
 SITE_ID = 1
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 if APP_ENV == "local":
     STATIC_URL = '/static/'

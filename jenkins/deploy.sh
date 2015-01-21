@@ -26,8 +26,13 @@ then
   cp -rv "./." "${APP_DIR}"
 fi
 
+if [[ -e "${ENVDIR}" ]]
+then
+  rm -rv "${ENVDIR}"
+fi
 cp -rv "${SOURCE_ENVDIR}" "${ENVDIR}"
 echo "${APP_ENV}" > "${ENVDIR}/APP_ENV"
+echo "${LINKED_VERSION_DIR}" > "${ENVDIR}/PROJECT_ROOT"
 
 if [[ ! -e "${VENV_DIR}/bin/activate" ]]
 then
