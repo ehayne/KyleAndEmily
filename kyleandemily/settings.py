@@ -137,6 +137,7 @@ if APP_ENV != "prod":
     INSTALLED_APPS += ('debug_toolbar',)
     DEBUG = True
     TEMPLATE_DEBUG = True
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 try:
     from kyleandemily.local_settings import *
