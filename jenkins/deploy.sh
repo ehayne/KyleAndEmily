@@ -11,7 +11,6 @@ export VENV_DIR="${ROOT}/venv_versions/${VENV_VERSION}"
 export SOURCE_ENVDIR="${ROOT}/envdir"
 export ENVDIR_PATH="${VERSION_DIR}/envdir"
 export LINKED_VENV_DIR="${VERSION_DIR}/venv"
-export SMOKETEST_APP_DIR="${ROOT}/smoketest"
 export LINKED_VERSION_DIR="${ROOT}/${APP_ENV}"
 export LINKED_VENV_DIR="${VERSION_DIR}/venv"
 export LINKED_MEDIA_DIR="${VERSION_DIR}/media"
@@ -43,10 +42,6 @@ else
   . "${VENV_DIR}/bin/activate"
 fi
 
-ln -snf "${VERSION_DIR}" "${SMOKETEST_APP_DIR}"
-cd "${SMOKETEST_APP_DIR}/app"
-python manage.py collectstatic --noinput
-
 ln -snf "${VERSION_DIR}" "${LINKED_VERSION_DIR}"
 ln -snf "${VENV_DIR}" "${LINKED_VENV_DIR}"
 ln -snf "${MEDIA_DIR}" "${LINKED_MEDIA_DIR}"
@@ -54,6 +49,7 @@ ln -snf "${DB_DIR}" "${LINKED_DB_DIR}"
 
 cd "${LINKED_VERSION_DIR}/app"
 
+python manage.py collectstatic --noinput
 python manage.py migrate
 python manage.py migrate rsvp --database="rsvp_db"
 
