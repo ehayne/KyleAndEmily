@@ -7,36 +7,25 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
-
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
-
-# Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 import os
+import envdir
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+from photologue import PHOTOLOGUE_APP_DIR
+
+envdir_path = os.environ.get('ENVDIR_PATH')
+if envdir_path and os.path.isdir(envdir_path):
+    envdir.open(envdir_path)
+
 APP_ENV = os.environ.get('APP_ENV', 'local')
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
-REMOTE_ROOT = '/usr/local/kyleandemily'
+DB_ROOT = os.path.join(PROJECT_DIR, 'db')
+GOOGLE_SITE_VERIFICATION = os.environ.get('GOOGLE_SITE_VERIFICATION', '')
 
-if APP_ENV == "local":
-    DB_ROOT = PROJECT_DIR
-else:
-    DB_ROOT = os.path.join(REMOTE_ROOT, 'db_' + APP_ENV)
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-with open(os.path.join(PROJECT_DIR, 'key.txt')) as f:
-    SECRET_KEY = f.read().strip()
-
-# SECURITY WARNING: don't run with debug turned on in production!
-if APP_ENV != "prod":
-    DEBUG = True
-    TEMPLATE_DEBUG = True
+SECRET_KEY = os.environ.get('SECRET_KEY', APP_ENV)
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'donotreply8386@gmail.com'
-EMAIL_HOST_PASSWORD = 'password8386'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'donotreply8386@gmail.com'
@@ -61,6 +50,7 @@ DATABASE_ROUTERS = [
     'kyleandemily.rsvp.db_router.RSVPRouter',
 ]
 
+BROKER_URL = os.environ.get('BROKER_URL', 'amqp://guest:guest@localhost:5672//')
 
 # Application definition
 
@@ -76,8 +66,6 @@ INSTALLED_APPS = (
     'photologue',
     'south',
     'sortedm2m',
-    'debug_toolbar',
-    'raven.contrib.django.raven_compat',
     #'wamp',
 
     'kyleandemily.wedding',
@@ -95,7 +83,11 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = TEMPLATE_CONTEXT_PROCESSORS + (
+TEMPLATE_DIRS = (
+    PHOTOLOGUE_APP_DIR,
+)
+
+TEMPLATE_CONTEXT_PROCESSORS += (
     'kyleandemily.processor.wedding_default',
 )
 
@@ -118,34 +110,25 @@ USE_TZ = True
 
 SITE_ID = 1
 
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+
 if APP_ENV == "local":
-    STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
     STATIC_URL = '/static/'
-    MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
     MEDIA_URL = '/media/'
 else:
-    STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-    MEDIA_ROOT = os.path.join(REMOTE_ROOT, 'media_' + APP_ENV)
     STATIC_URL = 'http://' + APP_ENV + '.static.kyleandemily.com/'
     MEDIA_URL = 'http://' + APP_ENV + '.media.kyleandemily.com/'
 
-
-
-from photologue import PHOTOLOGUE_APP_DIR
-TEMPLATE_DIRS = (
-    PHOTOLOGUE_APP_DIR,
-)
-
 if APP_ENV == "prod":
+    INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
     RAVEN_CONFIG = {
-        'dsn': 'http://8e93f45b82f34f629cbd65ab129f2f08:80de27c57bba414096b01881bd9e5b65@sentry.rocktavious.com/2',
+        'dsn': os.environ.get('RAVEN_CONFIG_DSN', ''),
     }
-else:
-    RAVEN_CONFIG = {
-        'dsn': 'http://d23b2be3932b441a95ead317bbcaa192:9f2d380f50a14ee48cde6f88099cad15@sentry.rocktavious.com/4',
-    }
-
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
+if APP_ENV != "prod":
+    INSTALLED_APPS += ('debug_toolbar',)
+    DEBUG = True
+    TEMPLATE_DEBUG = True
 
 try:
     from kyleandemily.local_settings import *

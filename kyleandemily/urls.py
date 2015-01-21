@@ -19,7 +19,7 @@ urlpatterns = patterns(
     url(r'^(?i)photologue/', include('photologue.urls')),
 )   
 
-if settings.DEBUG:
+if settings.APP_ENV == 'local':
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # handler404 = 'views.404error'
