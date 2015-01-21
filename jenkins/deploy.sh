@@ -9,7 +9,7 @@ export MEDIA_DIR="${ROOT}/media_${APP_ENV}"
 export DB_DIR="${ROOT}/db_${APP_ENV}"
 export VENV_DIR="${ROOT}/venv_versions/${VENV_VERSION}"
 export SOURCE_ENVDIR="${ROOT}/envdir"
-export ENVDIR="${VERSION_DIR}/envdir"
+export ENVDIR_PATH="${VERSION_DIR}/envdir"
 export LINKED_VENV_DIR="${VERSION_DIR}/venv"
 export SMOKETEST_APP_DIR="${ROOT}/smoketest"
 export LINKED_VERSION_DIR="${ROOT}/${APP_ENV}"
@@ -26,13 +26,13 @@ then
   cp -rv "./." "${APP_DIR}"
 fi
 
-if [[ -e "${ENVDIR}" ]]
+if [[ -e "${ENVDIR_PATH}" ]]
 then
-  rm -rv "${ENVDIR}"
+  rm -rv "${ENVDIR_PATH}"
 fi
-cp -rv "${SOURCE_ENVDIR}" "${ENVDIR}"
-echo "${APP_ENV}" > "${ENVDIR}/APP_ENV"
-echo "${LINKED_VERSION_DIR}" > "${ENVDIR}/PROJECT_ROOT"
+cp -rv "${SOURCE_ENVDIR}" "${ENVDIR_PATH}"
+echo "${APP_ENV}" > "${ENVDIR_PATH}/APP_ENV"
+echo "${LINKED_VERSION_DIR}" > "${ENVDIR_PATH}/PROJECT_ROOT"
 
 if [[ ! -e "${VENV_DIR}/bin/activate" ]]
 then
