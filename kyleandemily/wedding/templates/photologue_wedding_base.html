@@ -1,0 +1,22 @@
+{% block content %}
+    
+<div id="wrap">
+  <div id="imageHeader">
+  <span id="textHeader">
+    <h1>{{ page_title }}</h1>
+
+    <div id="theDate">
+      <div>{{ WEDDING_DATE_TEXT }}</div>
+    </div>
+  </span>
+  </div>
+
+    {% include 'navbar.html' %}
+    <div id="content">
+      {% block wedding-content %}{% endblock %}
+    {% include 'wedding_footer.html' %}
+    </div>
+    <div id="outsideFooter" class="center">{{ footer_text }}</div>
+</div>
+{% endblock %}
+
