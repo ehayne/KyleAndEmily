@@ -24,6 +24,7 @@ PROJECT_ROOT = os.environ.get('PROJECT_ROOT', None)
 if PROJECT_ROOT is None:
     PROJECT_ROOT = PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 else:
+    PROJECT_ROOT = os.path.abspath(PROJECT_ROOT)
     PROJECT_DIR = os.path.join(PROJECT_ROOT, 'app')
 DB_ROOT = os.path.join(PROJECT_ROOT, 'db')
 GOOGLE_SITE_VERIFICATION = os.environ.get('GOOGLE_SITE_VERIFICATION', '')
