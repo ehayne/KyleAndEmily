@@ -9,12 +9,15 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 import os
 import envdir
+import warnings
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 from photologue import PHOTOLOGUE_APP_DIR
 
-envdir_path = os.environ.get('ENVDIR_PATH')
-if envdir_path and os.path.isdir(envdir_path):
-    envdir.open(envdir_path)
+ENVDIR_PATH = os.environ.get('ENVDIR_PATH')
+if ENVDIR_PATH and os.path.isdir(ENVDIR_PATH):
+    envdir.open(ENVDIR_PATH)
+else:
+    warnings.warn('Unable to find ENVDIR_PATH: {0}'.format(ENVDIR_PATH))
 
 APP_ENV = os.environ.get('APP_ENV', 'local')
 PROJECT_ROOT = os.environ.get('PROJECT_ROOT', None)
