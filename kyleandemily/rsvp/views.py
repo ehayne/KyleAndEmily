@@ -143,7 +143,7 @@ def save(request):
     invitation.save()
 
     context = {
-        'invitation': person.invitation,
+        'invitation': person.invitation
     }
 
     subject = '[RSVP] Wedding RSVP Received'
