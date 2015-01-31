@@ -26,8 +26,9 @@ ABOUT_TEXT = {
 }
 
 DETAILS_TEXT = {
-    'ceremony': 'Our ceremony will be outdoors at the Winfield Inn. Please check back soon for the exact time we''re getting hitched!',
-    'reception': 'Reception will follow at the Winfield Inn.',
+    'ceremony': '<p>Our ceremony will be outdoors at the Winfield Inn at 6pm.</p>'
+                '<p> Be sure to allow time for Friday afternoon traffic.</p>',
+    'reception': 'Cocktail hour and reception will follow at the Winfield Inn.',
     'dress_code': 'Dressy Casual',
     'driving_directions_text': 'We invite you to join us at the Winfield Inn in Kyle, Texas. It''s about 20 miles south of downtown Austin. ' +
                             'Expect some traffic on the way to the venue since it will be Friday evening.',
