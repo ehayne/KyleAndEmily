@@ -18,20 +18,19 @@ ABOUT_TEXT = {
                         'was also a hidden treasure. After talking most of the afternoon away, Kyle began to tell Emily about how amazing '+
                         'the last 2 years of his life has been with her.  He then got down on one knee and asked if she would like to marry him. '+
                         'She said YES!',
-    'how_we_met': 'With 3 days left on Kyle''s match.com account, and only 3 days into the start of Emily''s match.com account ' +
+    'how_we_met': 'With 3 days left on Kyle\'s match.com account, and only 3 days into the start of Emily''s match.com account ' +
                   '(Emily always was the lucky one), little did they know, this would be the start of an amazing adventure.  ' +
                   'After a few messages back and forth, Kyle cut to the chase and asked Emily to meet up at the local coffee shop.  ' +
-                  'It was a beautiful spring afternoon in downtown Austin.  They talked for hours before realizing they hadn''t ordered ' +
+                  'It was a beautiful spring afternoon in downtown Austin.  They talked for hours before realizing they hadn\'t ordered ' +
                   'their coffee or tea yet.  The rest, as they say, is history!'
 }
 
 DETAILS_TEXT = {
-    'ceremony': '<p>Our ceremony will be outdoors at the Winfield Inn at 6pm.</p>'
-                '<p> Be sure to allow time for Friday afternoon traffic.</p>',
+    'ceremony': 'Our ceremony will be outdoors at the Winfield Inn at 6pm.',
     'reception': 'Cocktail hour and reception will follow at the Winfield Inn.',
     'dress_code': 'Dressy Casual',
-    'driving_directions_text': 'We invite you to join us at the Winfield Inn in Kyle, Texas. It''s about 20 miles south of downtown Austin. ' +
-                            'Expect some traffic on the way to the venue since it will be Friday evening.',
+    'driving_directions_text': 'We invite you to join us at the Winfield Inn at 900 Scott Street in Kyle, Texas. It\'s about 20 miles south of downtown Austin. ' +
+                            'Expect some traffic on the way to the venue since it will be Friday evening.  Plenty of parking will be available at the venue.',
     'map_url': 'https://www.google.com/maps/embed/v1/place?q=The%20Winfield%20Inn%2C%20Scott%20Street%2C%20Kyle%2C%20TX%2C%20United%20States&key=AIzaSyD51KGRYE17Jnmouarr0-VubPV8Q_KXUpY'
 }
 

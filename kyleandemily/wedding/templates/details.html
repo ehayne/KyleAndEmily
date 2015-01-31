@@ -16,19 +16,20 @@
     </p>
   </div>
 
-  <div id="dressCode" class="personSection">
-    <h3>Dress Code</h3>
-    <p class="personDescription">
-        {{ dress_code | safe }}
-    </p>
-  </div>
-
   <div id="directions" class="personSection">
     <h3>Driving directions</h3>
     <p class="personDescription">
         {{ directions_text | safe }}
     </p>
     <iframe width="600" height="450" frameborder="0" style="border:0" src="{{ map_url }}"></iframe>
+  </div>
+
+
+  <div id="dressCode" class="personSection">
+    <h3>Dress Code</h3>
+    <p class="personDescription">
+        {{ dress_code | safe }}
+    </p>
   </div>
 
 {% endblock %}
