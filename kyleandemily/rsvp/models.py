@@ -34,8 +34,16 @@ Represents an invitation to the wedding
     )
 
     @property
-    def guests(self):
+    def wedding_guests(self):
         return self.people.filter(attendingWedding=True).count()
+
+    @property
+    def welcome_guests(self):
+        return self.people.filter(attendingWelcome=True).count()
+    
+    @property
+    def farewell_guests(self):
+        return self.people.filter(attendingFarewell=True).count()
 
 
 class Person(models.Model):
