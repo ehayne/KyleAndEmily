@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import RequestContext
 from kyleandemily import settings
 
@@ -76,10 +76,15 @@ def save(request):
     """
     validate response, save it and send email to let couple know about response
     """
-    invitation = get_object_or_404(
-        Invitation,
-        id=request.POST['invitation_id']
-    )
+    # invitation = get_object_or_404(
+    #     Invitation,
+    #     id=request.POST['invitation_id']
+    # )
+
+    try:
+        invitation = Invitation.objects.get(id=request.POST.get('invitation_id',False))
+    except Invitation.DoesNotExist:
+        return redirect('landing')
 
     persons = DotExpandedDict(request.POST)
 
