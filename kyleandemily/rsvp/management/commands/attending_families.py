@@ -24,7 +24,7 @@ class Command(BaseCommand):
             families.append(family)
                     
         
-        for family in familes:
+        for family in families:
             self.stdout.write(','.join(family))
         
         self.stdout.write("Total Guest Count: {0}".format(guest_count))
