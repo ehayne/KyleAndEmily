@@ -12,7 +12,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         guest_count = 0
         families = []
-        for inv in Invitation.objects.all(responded=True):
+        for inv in Invitation.objects.filter(responded=True):
             family = []
             for guest in inv.people.filter(attendingWedding=True):
                 family.append(guest.first_name)
