@@ -8,7 +8,6 @@ class PersonInline(admin.TabularInline):
 
 class InvitationAdmin(admin.ModelAdmin):
     list_display = ('name', 'responded', 'welcome_guests', 'wedding_guests', 'farewell_guests')
-    readonly_fields = ('responded',)
     inlines = (PersonInline,)
 
 admin.site.register(Invitation, InvitationAdmin)
