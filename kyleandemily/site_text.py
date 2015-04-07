@@ -27,7 +27,7 @@ ABOUT_TEXT = {
 
 DETAILS_TEXT = {
     'ceremony': 'Our ceremony will be outdoors at the Winfield Inn at 6pm.  In case of inclement weather, we will be married in a covered pavilion at the venue.',
-    'reception': 'Cocktail hour and reception will follow at the Winfield Inn.',
+    'reception': 'Cocktail hour, dinner and dancing will follow at the Winfield Inn.',
     'dress_code': 'Dressy Casual',
     'driving_directions_text': 'We invite you to join us at the Winfield Inn at 900 Scott Street in Kyle, Texas. It\'s about 20 miles south of downtown Austin. ' +
                             'Expect some traffic on the way to the venue since it will be Friday evening.  Plenty of parking will be available at the venue.',
