@@ -53,6 +53,3 @@ python manage.py collectstatic --noinput
 python manage.py migrate
 python manage.py migrate rsvp --database="rsvp_db"
 
-cp -f "${WORKSPACE}/jenkins/nginx.conf" "/etc/nginx/sites-enabled/${PROJECT_NAME}.conf"
-cp -f "${WORKSPACE}/jenkins/uwsgi_$APP_ENV.ini" "/usr/local/uwsgi/confs/${PROJECT_NAME}_${APP_ENV}.ini"
-cp -f "${WORKSPACE}/jenkins/celeryd.conf" "/usr/local/supervisor/confs/${PROJECT_NAME}_celery.conf"
